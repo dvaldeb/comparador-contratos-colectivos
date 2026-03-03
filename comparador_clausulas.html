@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Cláusulas - Contratos Colectivos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .walmart-blue { background-color: #0053E2; }
+        .walmart-spark { background-color: #FFC220; }
+        .tab-active { border-bottom: 3px solid #0053E2; background-color: #E6F0FF; }
+        .clausula-box { 
+            white-space: pre-wrap; 
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+        .highlight { background-color: #FFF3CD; padding: 2px 4px; border-radius: 3px; }
+        @media print {
+            .no-print { display: none; }
+            .print-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="walmart-blue text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">📊 Comparador de Cláusulas</h1>
+            <p class="text-blue-100 mt-2">Contratos Colectivos - Análisis Comparativo</p>
+        </div>
+    </header>
+
+    <!-- Info Cards -->
+    <div class="container mx-auto px-4 py-6">
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+
+            <div class="rounded-lg p-4 text-white shadow-lg" style="background-color: #0053E2">
+                <h3 class="text-xl font-bold">SIL</h3>
+                <p class="text-sm opacity-90">Sindicato Interempresa Líder</p>
+                <p class="text-xs mt-2 opacity-75">CC SIL 2025-2027 (Firma 02.07.2025)</p>
+                <div class="mt-3 flex flex-wrap gap-2"><span class="bg-white/20 px-2 py-1 rounded text-sm">Hiper</span> <span class="bg-white/20 px-2 py-1 rounded text-sm">Express</span> <span class="bg-white/20 px-2 py-1 rounded text-sm">Ekono</span> <span class="bg-white/20 px-2 py-1 rounded text-sm">Walmart Mayorista</span></div>
+            </div>
+
+            <div class="rounded-lg p-4 text-white shadow-lg" style="background-color: #FFC220">
+                <h3 class="text-xl font-bold">FED WM</h3>
+                <p class="text-sm opacity-90">Federación Nacional Walmart</p>
+                <p class="text-xs mt-2 opacity-75">CC FED WM 15.12.2025 (Versión Definitiva)</p>
+                <div class="mt-3 flex flex-wrap gap-2"><span class="bg-white/20 px-2 py-1 rounded text-sm">Hiper</span> <span class="bg-white/20 px-2 py-1 rounded text-sm">Express</span> <span class="bg-white/20 px-2 py-1 rounded text-sm">Ekono</span> <span class="bg-white/20 px-2 py-1 rounded text-sm">Acuenta</span> <span class="bg-white/20 px-2 py-1 rounded text-sm">SBA</span></div>
+            </div>
+        </div>
+
+        <!-- Tabs de Temas -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="flex border-b no-print" id="tabs">
+                <button onclick="showTab('Excelencia_Académica')" 
+                        class="flex-1 py-4 px-4 text-center font-semibold hover:bg-gray-100 transition tab-active" 
+                        id="tab-Excelencia_Académica">
+                    <span class="text-2xl">🎓</span><br>
+                    <span class="text-sm">Excelencia Académica</span>
+                </button>
+                <button onclick="showTab('Aniversarios')" 
+                        class="flex-1 py-4 px-4 text-center font-semibold hover:bg-gray-100 transition " 
+                        id="tab-Aniversarios">
+                    <span class="text-2xl">🎉</span><br>
+                    <span class="text-sm">Aniversarios</span>
+                </button>
+                <button onclick="showTab('Casino___Alimentación')" 
+                        class="flex-1 py-4 px-4 text-center font-semibold hover:bg-gray-100 transition " 
+                        id="tab-Casino___Alimentación">
+                    <span class="text-2xl">🍽️</span><br>
+                    <span class="text-sm">Casino / Alimentación</span>
+                </button>
+                <button onclick="showTab('Uniformes')" 
+                        class="flex-1 py-4 px-4 text-center font-semibold hover:bg-gray-100 transition " 
+                        id="tab-Uniformes">
+                    <span class="text-2xl">👔</span><br>
+                    <span class="text-sm">Uniformes</span>
+                </button>
+            </div>
+
+            <!-- Contenido de Tabs -->
+            <div id="content-Excelencia_Académica" class="p-6" style="display: block">
+                <h2 class="text-2xl font-bold mb-4" style="color: #2A8703">
+                    🎓 Excelencia Académica
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border-2 rounded-lg overflow-hidden" style="border-color: #0053E2">
+                        <div class="px-4 py-3 text-white font-bold flex justify-between items-center" style="background-color: #0053E2">
+                            <span>SIL</span>
+                            <span class="bg-white/20 px-2 py-1 rounded text-sm">Pág 4</span>
+                        </div>
+                        <div class="p-4 bg-gray-50">
+                            <div class="text-xs text-gray-500 mb-2">Marcas: Hiper, Express, Ekono, Walmart Mayorista</div>
+                            <div class="clausula-box text-sm text-gray-700 max-h-96 overflow-y-auto bg-white p-4 rounded border">
+zará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA ROSITA PINEDA) 
+Cada año se elegirá al “Colaborador del Año” en cada local, de los trabajadores afectos o 
+no, al contrato colectivo. El reconocimiento consiste en un diploma y un cheque de 
+$369.851 pesos brutos. 
+A lo anterior, se sumará el reconocimiento transversal que haga la Empresa a los ganadores 
+de acuerdo a lo que se publicite cada año.  
+b) ACTIVIDADES PARA MEJORAR EL NIVEL EDUCACIONAL 
+Las empresas mantendrán, a lo menos, las condiciones vigentes a la fecha de la firma del 
+presente Contrato Colectivo, para el otorgamiento del beneficio de nivelación de estudios 
+de enseñanza media y básica, de acuerdo a las condiciones vigentes. 
+c) RECONOCIMIENTO A LA ANTIGÜEDAD  
+Las Empresas otorgarán un pin de reconocimiento a cada trabajador que cumpla 5, 10, 15, 
+20 o 25 años de servicio ininterrumpido.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-lg overflow-hidden" style="border-color: #FFC220">
+                        <div class="px-4 py-3 text-white font-bold flex justify-between items-center" style="background-color: #FFC220">
+                            <span>FED WM</span>
+                            <span class="bg-white/20 px-2 py-1 rounded text-sm">Pág 6</span>
+                        </div>
+                        <div class="p-4 bg-gray-50">
+                            <div class="text-xs text-gray-500 mb-2">Marcas: Hiper, Express, Ekono, Acuenta, SBA</div>
+                            <div class="clausula-box text-sm text-gray-700 max-h-96 overflow-y-auto bg-white p-4 rounded border">
+2. PREMIO MEJOR COLABORADOR DEL AÑO (EX BECA ROSITA PINEDA). 
+Cada año se elegirá al “Mejor Colaborador del Año” de las empresas.  El reconocimiento consiste en un 
+diploma y un cheque de $369.851 pesos brutos. Adicionalmente el trabajador que se haga acreedor al 
+referido premio, podrá asistir a un encuentro o seminario, que se realiza durante dos días, con todos los 
+gastos pagados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-Aniversarios" class="p-6" style="display: none">
+                <h2 class="text-2xl font-bold mb-4" style="color: #0053E2">
+                    🎉 Aniversarios
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border-2 rounded-lg overflow-hidden" style="border-color: #0053E2">
+                        <div class="px-4 py-3 text-white font-bold flex justify-between items-center" style="background-color: #0053E2">
+                            <span>SIL</span>
+                            <span class="bg-white/20 px-2 py-1 rounded text-sm">Pág 4</span>
+                        </div>
+                        <div class="p-4 bg-gray-50">
+                            <div class="text-xs text-gray-500 mb-2">Marcas: Hiper, Express, Ekono, Walmart Mayorista</div>
+                            <div class="clausula-box text-sm text-gray-700 max-h-96 overflow-y-auto bg-white p-4 rounded border">
+aldo insoluto adeudado 
+se deducirá de los haberes que le correspondan que le sean pagadas en el respectivo 
+finiquito, incluida la indemnización por años de servicios, autorización que se entenderá 
+conferida por el solo hecho de solicitar el préstamo. 
+Al préstamo indicado sólo podrán optar aquellos trabajadores cuya remuneración mensual 
+y las demás deudas o pagos que se deducen de las remuneraciones, les permita pagar la 
+cuota respectiva sin que se infrinja el límite máximo de 15% de la remuneración total 
+mensual que dispone el inciso segundo del artículo 58 del Código del Trabajo.  
+Para efectos de la determinación del máximo a solicitar, el análisis del límite máximo de 
+endeudamiento se realizará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA ROSITA PINEDA) 
+Cada año se elegirá al “Colaborador del Año” en cada local, de los trabajadores afectos o 
+no, al contrato colectivo. El reconocimiento consiste en un diploma y un cheque de 
+$369.851 pesos brutos. 
+A lo anterior, se sumará el reconocimiento transversal que haga la Empresa a los ganadores 
+de acuerdo a lo que se publicite cada año.  
+b) ACTIVIDADES PARA MEJORAR EL NIVEL EDUCACIONAL 
+Las empresas mantendrán, a lo menos, las condiciones vigentes a la fecha de la firma del 
+presente Contrato Colectivo, para el otorgamiento del beneficio de nivelación de estudios 
+de enseñanza media y básica, de acuerdo a las condiciones vigentes. 
+c) RECONOCIMIENTO A LA ANTIGÜEDAD  
+Las Empresas otorgarán un pin de reconocimiento a cada trabajador que cumpla 5, 10, 15, 
+20 o 25 años de servicio ininterrumpido.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-lg overflow-hidden" style="border-color: #FFC220">
+                        <div class="px-4 py-3 text-white font-bold flex justify-between items-center" style="background-color: #FFC220">
+                            <span>FED WM</span>
+                            <span class="bg-white/20 px-2 py-1 rounded text-sm">Pág 11</span>
+                        </div>
+                        <div class="p-4 bg-gray-50">
+                            <div class="text-xs text-gray-500 mb-2">Marcas: Hiper, Express, Ekono, Acuenta, SBA</div>
+                            <div class="clausula-box text-sm text-gray-700 max-h-96 overflow-y-auto bg-white p-4 rounded border">
+, podrán participar 
+voluntariamente de las actividades deportivas y   recreativas que la empresa financia. 
+Una vez al año la empresa celebrará su aniversario, con una actividad especial. Para decidir el tipo de 
+actividad, se deberá realizar una votación en la cual participen todos los trabajadores del local, por 
+medio de la que podrán elegir el tipo de celebración a realizar, fuera de las dependencias del Local, sin 
+alcohol. Las opciones a votar serán un paseo o una cena.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-Casino___Alimentación" class="p-6" style="display: none">
+                <h2 class="text-2xl font-bold mb-4" style="color: #FFC220">
+                    🍽️ Casino / Alimentación
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border-2 rounded-lg overflow-hidden" style="border-color: #0053E2">
+                        <div class="px-4 py-3 text-white font-bold flex justify-between items-center" style="background-color: #0053E2">
+                            <span>SIL</span>
+                            <span class="bg-white/20 px-2 py-1 rounded text-sm">Pág 11</span>
+                        </div>
+                        <div class="p-4 bg-gray-50">
+                            <div class="text-xs text-gray-500 mb-2">Marcas: Hiper, Express, Ekono, Walmart Mayorista</div>
+                            <div class="clausula-box text-sm text-gray-700 max-h-96 overflow-y-auto bg-white p-4 rounded border">
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+h) Una inasistencia mensual de lunes a viernes que no sea festivo. Por tanto, la ausencia no 
+puede ser fin de semana o festivo, ni aplica en jornadas de fin de semana o festivo 
+i) Los permisos autorizados por escrito que la empresa extienda voluntariamente o faculte 
+al trabajador para ausentarse de su lugar de trabajo o jornada laboral pactada. 
+j) La inasistencia derivada de los padres trabajadores, para asistir a sus hijos e hijas menores 
+de edad debidamente diagnosticados con trastorno del espectro autista, de acuerdo a la 
+Ley N 21.545 y el artículo 66 quinquies del Código del Trabajo. 
+La modificación del turno o la malla horaria programada, de común acuerdo, ingresada al 
+sistema de planificación de turnos por la respectiva Jefatura, de acuerdo a la constancia 
+escrita del cambio, deberá considerarse para la asistencia y horario de este bono. 
+ii) Registrar su horario de ingreso y de salida del trabajo en el sistema de control dispuesto, 
+sin dejar de hacerlo tanto a la entrada como a la salida. Ingresar puntualmente a cumplir 
+sus labores diarias a la hora fijada de acuerdo a los horarios establecidos. Se entenderá que 
+cumple con esta condición el trabajador que registre su ingreso y salida diaria, en caso 
+excepcional y eventualmente, no antes ni después de 15 minutos del horario respectivo de 
+inicio y término de la jornada diaria de trabajo. Para el personal que desempeñe funciones 
+de cajero la tolerancia detallada se extenderá hasta 20 minutos al término de la jornada. 
+No se considerará falta al deber de registro puntual, el registro post-término de la jornada 
+por causa inimput
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-lg overflow-hidden" style="border-color: #FFC220">
+                        <div class="px-4 py-3 text-white font-bold flex justify-between items-center" style="background-color: #FFC220">
+                            <span>FED WM</span>
+                            <span class="bg-white/20 px-2 py-1 rounded text-sm">Pág 22</span>
+                        </div>
+                        <div class="p-4 bg-gray-50">
+                            <div class="text-xs text-gray-500 mb-2">Marcas: Hiper, Express, Ekono, Acuenta, SBA</div>
+                            <div class="clausula-box text-sm text-gray-700 max-h-96 overflow-y-auto bg-white p-4 rounded border">
+originen por un hecho de carácter laboral no imputable al trabajador. 
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, retraso en la 
+marcación por apertura fuera de horarios no imputables al trabajador y fallas técnicas del sistema de 
+control. 
+h) Los días de ausencia acordada con motivo del Encuentro del Sindicato de empresa respectivo, previo 
+aviso oportuno y por escrito de dicha actividad.  
+i) Los días de fin de semana libre que pudiera tener un trabajador por el reconocimiento de la antigüedad 
+en la empresa, a que se refiere el párrafo final de la cláusula N°41 de este contrato colectivo. 
+j) Las ausencias que se originen por un hecho no imputable al trabajador, acreditado de manera fehaciente 
+(por ejemplo: denuncia en Carabineros o certificado de constatación de lesiones en caso de asalto) o por 
+otro medio verosímil.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-Uniformes" class="p-6" style="display: none">
+                <h2 class="text-2xl font-bold mb-4" style="color: #76C8E8">
+                    👔 Uniformes
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border-2 rounded-lg overflow-hidden" style="border-color: #0053E2">
+                        <div class="px-4 py-3 text-white font-bold flex justify-between items-center" style="background-color: #0053E2">
+                            <span>SIL</span>
+                            <span class="bg-white/20 px-2 py-1 rounded text-sm">Pág 4</span>
+                        </div>
+                        <div class="p-4 bg-gray-50">
+                            <div class="text-xs text-gray-500 mb-2">Marcas: Hiper, Express, Ekono, Walmart Mayorista</div>
+                            <div class="clausula-box text-sm text-gray-700 max-h-96 overflow-y-auto bg-white p-4 rounded border">
+s en el acápite del presente contrato colectivo. Así, no se aplicarán a los Jefes las 
+cláusulas de Bono de Asistencia y Marcación, jornada semanal y ropa de trabajo.  
+2.- PRÉSTAMO SIL 
+En el mes de febrero de cada año, la empresa otorgará, a los trabajadores individualizados 
+en Anexo adjunto, que así lo soliciten, un préstamo especial de $170.000 (ciento setenta 
+mil pesos), el cual podrá ser solicitado desde la tercera semana de diciembre hasta el mes 
+de enero de cada año y será restituido en cuotas mensuales, iguales y sucesivas que serán 
+descontadas en un plazo de hasta once meses contados desde el mes de marzo respectivo, 
+sin reajustes, ni interés. 
+Las partes acuerdan que el pago de cada cuota se hará mediante la correspondiente 
+deducción de las remuneraciones mensuales del trabajador, entendiéndose conferida la 
+autorización irrevocable para ello, por el sólo hecho de solicitar el préstamo referido. 
+En caso de que por cualquier motivo el contrato de trabajo del trabajador llegare a su 
+término antes del pago de la totalidad de las cuotas convenidas, el saldo insoluto adeudado 
+se deducirá de los haberes que le correspondan que le sean pagadas en el respectivo 
+finiquito, incluida la indemnización por años de servicios, autorización que se entenderá 
+conferida por el solo hecho de solicitar el préstamo. 
+Al préstamo indicado sólo podrán optar aquellos trabajadores cuya remuneración mensual 
+y las demás deudas o pagos que se deducen de las remuneraciones, les permita pagar la 
+cuota respectiva sin que se infrinja el límite máximo de 15% de la remuneración total 
+mensual que dispone el inciso segundo del artículo 58 del Código del Trabajo.  
+Para efectos de la determinación del máximo a solicitar, el análisis del límite máximo de 
+endeudamiento se realizará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-2 rounded-lg overflow-hidden" style="border-color: #FFC220">
+                        <div class="px-4 py-3 text-white font-bold flex justify-between items-center" style="background-color: #FFC220">
+                            <span>FED WM</span>
+                            <span class="bg-white/20 px-2 py-1 rounded text-sm">Pág 20</span>
+                        </div>
+                        <div class="p-4 bg-gray-50">
+                            <div class="text-xs text-gray-500 mb-2">Marcas: Hiper, Express, Ekono, Acuenta, SBA</div>
+                            <div class="clausula-box text-sm text-gray-700 max-h-96 overflow-y-auto bg-white p-4 rounded border">
+20 
+trabajo y uniformes, que se detalla a continuación: 
+1.    Cajeros de Jornadas semanales de 44 y 30 horas: 
+• 2 poleras manga larga durante el mes de marzo. 
+• 2 poleras de manga corta durante el mes de septiembre 
+• 2 pantalones al año (reposición según desgaste natural y no provocado)  
+• 2 polar en el mes de marzo 
+• 1 par de Zapatos de material natural y antideslizantes (reemplazo según necesidad) 
+• 1 cinturón de tela
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón Imprimir -->
+        <div class="mt-6 text-center no-print">
+            <button onclick="window.print()" class="walmart-blue text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+                🖨️ Imprimir / Exportar PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4 mt-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>Generado por Code Puppy 🐶 | Walmart Chile</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tema) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('[id^="content-"]').forEach(el => el.style.display = 'none');
+            // Desactivar todos los tabs
+            document.querySelectorAll('[id^="tab-"]').forEach(el => el.classList.remove('tab-active'));
+            // Mostrar contenido seleccionado
+            document.getElementById('content-' + tema).style.display = 'block';
+            // Activar tab seleccionado
+            document.getElementById('tab-' + tema).classList.add('tab-active');
+        }
+    </script>
+</body>
+</html>

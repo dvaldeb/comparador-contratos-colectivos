@@ -1,0 +1,6 @@
+{
+  "errors" : [ {
+    "status" : 404,
+    "message" : "Not Found; Path: 'github-releases-generic-release-remote:tesseract-ocr/tesseract/releases/download/5.4.0/tesseract-5.4.0-win64.zip'"
+  } ]
+}

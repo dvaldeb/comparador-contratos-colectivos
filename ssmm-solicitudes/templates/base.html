@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Servicios Mínimos{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        walmart: {
+                            blue: '#0053e2',
+                            'blue-hover': '#0046c0',
+                            'blue-pressed': '#003899',
+                            spark: '#ffc220',
+                            'spark-dark': '#995213',
+                            green: '#2a8703',
+                            red: '#ea1100',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .htmx-request { opacity: 0.5; transition: opacity 300ms; }
+        .htmx-request .loading { display: inline-block !important; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-walmart-blue text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="text-3xl">⚡</span>
+                    <div>
+                        <h1 class="text-xl font-bold">Servicios Mínimos</h1>
+                        <p class="text-blue-200 text-sm">Sistema de Solicitudes SSMM 2026</p>
+                    </div>
+                </div>
+                <nav class="flex gap-4">
+                    <a href="/" class="px-4 py-2 rounded-lg hover:bg-white/10 transition
+                        {% if request.url.path == '/' %}bg-white/20{% endif %}">
+                        📝 Nueva Solicitud
+                    </a>
+                    <a href="/solicitudes" class="px-4 py-2 rounded-lg hover:bg-white/10 transition
+                        {% if '/solicitudes' in request.url.path %}bg-white/20{% endif %}">
+                        📋 Ver Solicitudes
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+            <p>Walmart Chile - Experiencia Colaborador 2026</p>
+        </div>
+    </footer>
+</body>
+</html>

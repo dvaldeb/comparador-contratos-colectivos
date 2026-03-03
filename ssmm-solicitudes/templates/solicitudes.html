@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Ver Solicitudes - Servicios Mínimos{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-800">📋 Solicitudes de Servicios Mínimos</h2>
+            <p class="text-gray-600">Gestiona y da seguimiento a las solicitudes</p>
+        </div>
+        
+        <!-- Filtros -->
+        <div class="flex gap-2">
+            <button hx-get="/solicitudes/tabla?estado=todos" 
+                    hx-target="#tabla-container" 
+                    hx-swap="innerHTML"
+                    class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition
+                           {% if not estado_filtro %}bg-walmart-blue text-white border-walmart-blue{% endif %}">
+                Todos
+            </button>
+            <button hx-get="/solicitudes/tabla?estado=pendiente" 
+                    hx-target="#tabla-container" 
+                    hx-swap="innerHTML"
+                    class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition
+                           {% if estado_filtro == 'pendiente' %}bg-walmart-spark text-gray-800 border-walmart-spark{% endif %}">
+                ⏳ Pendientes
+            </button>
+            <button hx-get="/solicitudes/tabla?estado=aprobada" 
+                    hx-target="#tabla-container" 
+                    hx-swap="innerHTML"
+                    class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition
+                           {% if estado_filtro == 'aprobada' %}bg-walmart-green text-white border-walmart-green{% endif %}">
+                ✅ Aprobadas
+            </button>
+            <button hx-get="/solicitudes/tabla?estado=rechazada" 
+                    hx-target="#tabla-container" 
+                    hx-swap="innerHTML"
+                    class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition
+                           {% if estado_filtro == 'rechazada' %}bg-walmart-red text-white border-walmart-red{% endif %}">
+                ❌ Rechazadas
+            </button>
+        </div>
+    </div>
+
+    <!-- Tabla de solicitudes -->
+    <div id="tabla-container" class="bg-white rounded-xl shadow-lg overflow-hidden">
+        {% include "partials/tabla_solicitudes.html" %}
+    </div>
+</div>
+{% endblock %}

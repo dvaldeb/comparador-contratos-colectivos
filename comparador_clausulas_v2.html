@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Cláusulas - Contratos Colectivos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .walmart-blue { background-color: #0053E2; }
+        .walmart-spark { background-color: #FFC220; }
+        .tab-active { border-bottom: 4px solid #0053E2; background-color: #E6F0FF; font-weight: bold; }
+        .sind-btn-active { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .clausula-box { 
+            white-space: pre-wrap; 
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+        .section-divider {
+            background: linear-gradient(90deg, #0053E2, #FFC220);
+            height: 3px;
+            margin: 20px 0;
+        }
+        @media print {
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="walmart-blue text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">📊 Comparador de Cláusulas</h1>
+            <p class="text-blue-100 mt-2">Contratos Colectivos - Selección por Sindicato</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-6">
+        
+        <!-- Tabs de Temas -->
+        <div class="bg-white rounded-t-xl shadow-lg">
+            <div class="flex border-b no-print" id="tabs">
+                <button onclick="showTab('Excelencia_Académica')" 
+                        class="flex-1 py-4 px-2 text-center hover:bg-gray-100 transition-all tab-active" 
+                        id="tab-Excelencia_Académica">
+                    <span class="text-2xl">🎓</span><br>
+                    <span class="text-sm">Excelencia Académica</span>
+                </button>
+                <button onclick="showTab('Aniversarios')" 
+                        class="flex-1 py-4 px-2 text-center hover:bg-gray-100 transition-all " 
+                        id="tab-Aniversarios">
+                    <span class="text-2xl">🎉</span><br>
+                    <span class="text-sm">Aniversarios</span>
+                </button>
+                <button onclick="showTab('Casino___Alimentación')" 
+                        class="flex-1 py-4 px-2 text-center hover:bg-gray-100 transition-all " 
+                        id="tab-Casino___Alimentación">
+                    <span class="text-2xl">🍽️</span><br>
+                    <span class="text-sm">Casino / Alimentación</span>
+                </button>
+                <button onclick="showTab('Uniformes')" 
+                        class="flex-1 py-4 px-2 text-center hover:bg-gray-100 transition-all " 
+                        id="tab-Uniformes">
+                    <span class="text-2xl">👔</span><br>
+                    <span class="text-sm">Uniformes</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="bg-white rounded-b-xl shadow-lg p-6">
+            <div id="content-Excelencia_Académica" style="display: block">
+                <h2 class="text-2xl font-bold mb-4" style="color: #2A8703">
+                    🎓 Excelencia Académica
+                </h2>
+                
+                <!-- Botones de Sindicato -->
+                <div class="flex flex-wrap gap-4 mb-6 no-print">
+                    <button onclick="showSindicato('Excelencia_Académica', 'SIL')" 
+                            id="btn-Excelencia_Académica-SIL"
+                            class="flex-1 min-w-[200px] p-4 rounded-xl text-white font-bold transition-all hover:opacity-100 sind-btn-active"
+                            style="background-color: #0053E2">
+                        <div class="text-lg">SIL</div>
+                        <div class="text-xs opacity-80">Sindicato Interempresa Líder</div>
+                        <div class="text-xs mt-2 opacity-60">Hiper, Express, Ekono...</div>
+                    </button>
+                    <button onclick="showSindicato('Excelencia_Académica', 'FED WM')" 
+                            id="btn-Excelencia_Académica-FED WM"
+                            class="flex-1 min-w-[200px] p-4 rounded-xl text-white font-bold transition-all hover:opacity-100 opacity-70"
+                            style="background-color: #FFC220">
+                        <div class="text-lg">FED WM</div>
+                        <div class="text-xs opacity-80">Federación Nacional Walmart</div>
+                        <div class="text-xs mt-2 opacity-60">Hiper, Express, Ekono...</div>
+                    </button>
+                    <button onclick="showSindicato('Excelencia_Académica')"
+                            id="btn-Excelencia_Académica-TODOS"
+                            class="min-w-[150px] p-4 rounded-xl bg-gray-800 text-white font-bold transition-all hover:bg-gray-700 opacity-70"
+                            >
+                        <div class="text-lg">🔍 COMPARAR</div>
+                        <div class="text-xs">Ver ambos</div>
+                    </button>
+                </div>
+                <div id="sind-Excelencia_Académica-SIL" class="sindicato-content-Excelencia_Académica" style="display: block">
+                    <div class="rounded-xl overflow-hidden border-2" style="border-color: #0053E2">
+                        <div class="px-6 py-4 text-white" style="background-color: #0053E2">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold">SIL</h3>
+                                    <p class="text-sm opacity-80">Sindicato Interempresa Líder</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-white/20 px-3 py-1 rounded-full text-sm">Pág 4</div>
+                                    <div class="text-xs mt-1 opacity-70">CC SIL 2025-2027 (Firma 02.07.2025)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Hiper</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Express</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Ekono</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Walmart Mayorista</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50">
+                            <div class="clausula-box bg-white p-6 rounded-lg border max-h-[600px] overflow-y-auto">
+zará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA ROSITA PINEDA) 
+Cada año se elegirá al “Colaborador del Año” en cada local, de los trabajadores afectos o 
+no, al contrato colectivo. El reconocimiento consiste en un diploma y un cheque de 
+$369.851 pesos brutos. 
+A lo anterior, se sumará el reconocimiento transversal que haga la Empresa a los ganadores 
+de acuerdo a lo que se publicite cada año.  
+b) ACTIVIDADES PARA MEJORAR EL NIVEL EDUCACIONAL 
+Las empresas mantendrán, a lo menos, las condiciones vigentes a la fecha de la firma del 
+presente Contrato Colectivo, para el otorgamiento del beneficio de nivelación de estudios 
+de enseñanza media y básica, de acuerdo a las condiciones vigentes. 
+c) RECONOCIMIENTO A LA ANTIGÜEDAD  
+Las Empresas otorgarán un pin de reconocimiento a cada trabajador que cumpla 5, 10, 15, 
+20 o 25 años de servicio ininterrumpido.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sind-Excelencia_Académica-FED WM" class="sindicato-content-Excelencia_Académica" style="display: none">
+                    <div class="rounded-xl overflow-hidden border-2" style="border-color: #FFC220">
+                        <div class="px-6 py-4 text-white" style="background-color: #FFC220">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold">FED WM</h3>
+                                    <p class="text-sm opacity-80">Federación Nacional Walmart</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-white/20 px-3 py-1 rounded-full text-sm">Pág 6</div>
+                                    <div class="text-xs mt-1 opacity-70">CC FED WM 15.12.2025 (Versión Definitiva)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Hiper</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Express</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Ekono</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Acuenta</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">SBA</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50">
+                            <div class="clausula-box bg-white p-6 rounded-lg border max-h-[600px] overflow-y-auto">
+2. PREMIO MEJOR COLABORADOR DEL AÑO (EX BECA ROSITA PINEDA). 
+Cada año se elegirá al “Mejor Colaborador del Año” de las empresas.  El reconocimiento consiste en un 
+diploma y un cheque de $369.851 pesos brutos. Adicionalmente el trabajador que se haga acreedor al 
+referido premio, podrá asistir a un encuentro o seminario, que se realiza durante dos días, con todos los 
+gastos pagados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sind-Excelencia_Académica-TODOS" class="sindicato-content-Excelencia_Académica" style="display: none">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="rounded-xl overflow-hidden border-2" style="border-color: #0053E2">
+                            <div class="px-4 py-3 text-white font-bold" style="background-color: #0053E2">
+                                <span>SIL</span>
+                                <span class="float-right bg-white/20 px-2 py-1 rounded text-sm">Pág 4</span>
+                            </div>
+                            <div class="p-4 bg-gray-50">
+                                <div class="clausula-box bg-white p-4 rounded border max-h-[500px] overflow-y-auto text-sm">
+zará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA ROSITA PINEDA) 
+Cada año se elegirá al “Colaborador del Año” en cada local, de los trabajadores afectos o 
+no, al contrato colectivo. El reconocimiento consiste en un diploma y un cheque de 
+$369.851 pesos brutos. 
+A lo anterior, se sumará el reconocimiento transversal que haga la Empresa a los ganadores 
+de acuerdo a lo que se publicite cada año.  
+b) ACTIVIDADES PARA MEJORAR EL NIVEL EDUCACIONAL 
+Las empresas mantendrán, a lo menos, las condiciones vigentes a la fecha de la firma del 
+presente Contrato Colectivo, para el otorgamiento del beneficio de nivelación de estudios 
+de enseñanza media y básica, de acuerdo a las condiciones vigentes. 
+c) RECONOCIMIENTO A LA ANTIGÜEDAD  
+Las Empresas otorgarán un pin de reconocimiento a cada trabajador que cumpla 5, 10, 15, 
+20 o 25 años de servicio ininterrumpido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border-2" style="border-color: #FFC220">
+                            <div class="px-4 py-3 text-white font-bold" style="background-color: #FFC220">
+                                <span>FED WM</span>
+                                <span class="float-right bg-white/20 px-2 py-1 rounded text-sm">Pág 6</span>
+                            </div>
+                            <div class="p-4 bg-gray-50">
+                                <div class="clausula-box bg-white p-4 rounded border max-h-[500px] overflow-y-auto text-sm">
+2. PREMIO MEJOR COLABORADOR DEL AÑO (EX BECA ROSITA PINEDA). 
+Cada año se elegirá al “Mejor Colaborador del Año” de las empresas.  El reconocimiento consiste en un 
+diploma y un cheque de $369.851 pesos brutos. Adicionalmente el trabajador que se haga acreedor al 
+referido premio, podrá asistir a un encuentro o seminario, que se realiza durante dos días, con todos los 
+gastos pagados.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-Aniversarios" style="display: none">
+                <h2 class="text-2xl font-bold mb-4" style="color: #0053E2">
+                    🎉 Aniversarios
+                </h2>
+                
+                <!-- Botones de Sindicato -->
+                <div class="flex flex-wrap gap-4 mb-6 no-print">
+                    <button onclick="showSindicato('Aniversarios', 'SIL')" 
+                            id="btn-Aniversarios-SIL"
+                            class="flex-1 min-w-[200px] p-4 rounded-xl text-white font-bold transition-all hover:opacity-100 sind-btn-active"
+                            style="background-color: #0053E2">
+                        <div class="text-lg">SIL</div>
+                        <div class="text-xs opacity-80">Sindicato Interempresa Líder</div>
+                        <div class="text-xs mt-2 opacity-60">Hiper, Express, Ekono...</div>
+                    </button>
+                    <button onclick="showSindicato('Aniversarios', 'FED WM')" 
+                            id="btn-Aniversarios-FED WM"
+                            class="flex-1 min-w-[200px] p-4 rounded-xl text-white font-bold transition-all hover:opacity-100 opacity-70"
+                            style="background-color: #FFC220">
+                        <div class="text-lg">FED WM</div>
+                        <div class="text-xs opacity-80">Federación Nacional Walmart</div>
+                        <div class="text-xs mt-2 opacity-60">Hiper, Express, Ekono...</div>
+                    </button>
+                    <button onclick="showSindicato('Aniversarios')"
+                            id="btn-Aniversarios-TODOS"
+                            class="min-w-[150px] p-4 rounded-xl bg-gray-800 text-white font-bold transition-all hover:bg-gray-700 opacity-70"
+                            >
+                        <div class="text-lg">🔍 COMPARAR</div>
+                        <div class="text-xs">Ver ambos</div>
+                    </button>
+                </div>
+                <div id="sind-Aniversarios-SIL" class="sindicato-content-Aniversarios" style="display: block">
+                    <div class="rounded-xl overflow-hidden border-2" style="border-color: #0053E2">
+                        <div class="px-6 py-4 text-white" style="background-color: #0053E2">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold">SIL</h3>
+                                    <p class="text-sm opacity-80">Sindicato Interempresa Líder</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-white/20 px-3 py-1 rounded-full text-sm">Pág 4</div>
+                                    <div class="text-xs mt-1 opacity-70">CC SIL 2025-2027 (Firma 02.07.2025)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Hiper</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Express</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Ekono</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Walmart Mayorista</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50">
+                            <div class="clausula-box bg-white p-6 rounded-lg border max-h-[600px] overflow-y-auto">
+aldo insoluto adeudado 
+se deducirá de los haberes que le correspondan que le sean pagadas en el respectivo 
+finiquito, incluida la indemnización por años de servicios, autorización que se entenderá 
+conferida por el solo hecho de solicitar el préstamo. 
+Al préstamo indicado sólo podrán optar aquellos trabajadores cuya remuneración mensual 
+y las demás deudas o pagos que se deducen de las remuneraciones, les permita pagar la 
+cuota respectiva sin que se infrinja el límite máximo de 15% de la remuneración total 
+mensual que dispone el inciso segundo del artículo 58 del Código del Trabajo.  
+Para efectos de la determinación del máximo a solicitar, el análisis del límite máximo de 
+endeudamiento se realizará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA ROSITA PINEDA) 
+Cada año se elegirá al “Colaborador del Año” en cada local, de los trabajadores afectos o 
+no, al contrato colectivo. El reconocimiento consiste en un diploma y un cheque de 
+$369.851 pesos brutos. 
+A lo anterior, se sumará el reconocimiento transversal que haga la Empresa a los ganadores 
+de acuerdo a lo que se publicite cada año.  
+b) ACTIVIDADES PARA MEJORAR EL NIVEL EDUCACIONAL 
+Las empresas mantendrán, a lo menos, las condiciones vigentes a la fecha de la firma del 
+presente Contrato Colectivo, para el otorgamiento del beneficio de nivelación de estudios 
+de enseñanza media y básica, de acuerdo a las condiciones vigentes. 
+c) RECONOCIMIENTO A LA ANTIGÜEDAD  
+Las Empresas otorgarán un pin de reconocimiento a cada trabajador que cumpla 5, 10, 15, 
+20 o 25 años de servicio ininterrumpido.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sind-Aniversarios-FED WM" class="sindicato-content-Aniversarios" style="display: none">
+                    <div class="rounded-xl overflow-hidden border-2" style="border-color: #FFC220">
+                        <div class="px-6 py-4 text-white" style="background-color: #FFC220">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold">FED WM</h3>
+                                    <p class="text-sm opacity-80">Federación Nacional Walmart</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-white/20 px-3 py-1 rounded-full text-sm">Pág 11</div>
+                                    <div class="text-xs mt-1 opacity-70">CC FED WM 15.12.2025 (Versión Definitiva)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Hiper</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Express</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Ekono</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Acuenta</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">SBA</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50">
+                            <div class="clausula-box bg-white p-6 rounded-lg border max-h-[600px] overflow-y-auto">
+, podrán participar 
+voluntariamente de las actividades deportivas y   recreativas que la empresa financia. 
+Una vez al año la empresa celebrará su aniversario, con una actividad especial. Para decidir el tipo de 
+actividad, se deberá realizar una votación en la cual participen todos los trabajadores del local, por 
+medio de la que podrán elegir el tipo de celebración a realizar, fuera de las dependencias del Local, sin 
+alcohol. Las opciones a votar serán un paseo o una cena.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sind-Aniversarios-TODOS" class="sindicato-content-Aniversarios" style="display: none">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="rounded-xl overflow-hidden border-2" style="border-color: #0053E2">
+                            <div class="px-4 py-3 text-white font-bold" style="background-color: #0053E2">
+                                <span>SIL</span>
+                                <span class="float-right bg-white/20 px-2 py-1 rounded text-sm">Pág 4</span>
+                            </div>
+                            <div class="p-4 bg-gray-50">
+                                <div class="clausula-box bg-white p-4 rounded border max-h-[500px] overflow-y-auto text-sm">
+aldo insoluto adeudado 
+se deducirá de los haberes que le correspondan que le sean pagadas en el respectivo 
+finiquito, incluida la indemnización por años de servicios, autorización que se entenderá 
+conferida por el solo hecho de solicitar el préstamo. 
+Al préstamo indicado sólo podrán optar aquellos trabajadores cuya remuneración mensual 
+y las demás deudas o pagos que se deducen de las remuneraciones, les permita pagar la 
+cuota respectiva sin que se infrinja el límite máximo de 15% de la remuneración total 
+mensual que dispone el inciso segundo del artículo 58 del Código del Trabajo.  
+Para efectos de la determinación del máximo a solicitar, el análisis del límite máximo de 
+endeudamiento se realizará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA ROSITA PINEDA) 
+Cada año se elegirá al “Colaborador del Año” en cada local, de los trabajadores afectos o 
+no, al contrato colectivo. El reconocimiento consiste en un diploma y un cheque de 
+$369.851 pesos brutos. 
+A lo anterior, se sumará el reconocimiento transversal que haga la Empresa a los ganadores 
+de acuerdo a lo que se publicite cada año.  
+b) ACTIVIDADES PARA MEJORAR EL NIVEL EDUCACIONAL 
+Las empresas mantendrán, a lo menos, las condiciones vigentes a la fecha de la firma del 
+presente Contrato Colectivo, para el otorgamiento del beneficio de nivelación de estudios 
+de enseñanza media y básica, de acuerdo a las condiciones vigentes. 
+c) RECONOCIMIENTO A LA ANTIGÜEDAD  
+Las Empresas otorgarán un pin de reconocimiento a cada trabajador que cumpla 5, 10, 15, 
+20 o 25 años de servicio ininterrumpido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border-2" style="border-color: #FFC220">
+                            <div class="px-4 py-3 text-white font-bold" style="background-color: #FFC220">
+                                <span>FED WM</span>
+                                <span class="float-right bg-white/20 px-2 py-1 rounded text-sm">Pág 11</span>
+                            </div>
+                            <div class="p-4 bg-gray-50">
+                                <div class="clausula-box bg-white p-4 rounded border max-h-[500px] overflow-y-auto text-sm">
+, podrán participar 
+voluntariamente de las actividades deportivas y   recreativas que la empresa financia. 
+Una vez al año la empresa celebrará su aniversario, con una actividad especial. Para decidir el tipo de 
+actividad, se deberá realizar una votación en la cual participen todos los trabajadores del local, por 
+medio de la que podrán elegir el tipo de celebración a realizar, fuera de las dependencias del Local, sin 
+alcohol. Las opciones a votar serán un paseo o una cena.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-Casino___Alimentación" style="display: none">
+                <h2 class="text-2xl font-bold mb-4" style="color: #E91E63">
+                    🍽️ Casino / Alimentación
+                </h2>
+                
+                <!-- Botones de Sindicato -->
+                <div class="flex flex-wrap gap-4 mb-6 no-print">
+                    <button onclick="showSindicato('Casino___Alimentación', 'SIL')" 
+                            id="btn-Casino___Alimentación-SIL"
+                            class="flex-1 min-w-[200px] p-4 rounded-xl text-white font-bold transition-all hover:opacity-100 sind-btn-active"
+                            style="background-color: #0053E2">
+                        <div class="text-lg">SIL</div>
+                        <div class="text-xs opacity-80">Sindicato Interempresa Líder</div>
+                        <div class="text-xs mt-2 opacity-60">Hiper, Express, Ekono...</div>
+                    </button>
+                    <button onclick="showSindicato('Casino___Alimentación', 'FED WM')" 
+                            id="btn-Casino___Alimentación-FED WM"
+                            class="flex-1 min-w-[200px] p-4 rounded-xl text-white font-bold transition-all hover:opacity-100 opacity-70"
+                            style="background-color: #FFC220">
+                        <div class="text-lg">FED WM</div>
+                        <div class="text-xs opacity-80">Federación Nacional Walmart</div>
+                        <div class="text-xs mt-2 opacity-60">Hiper, Express, Ekono...</div>
+                    </button>
+                    <button onclick="showSindicato('Casino___Alimentación')"
+                            id="btn-Casino___Alimentación-TODOS"
+                            class="min-w-[150px] p-4 rounded-xl bg-gray-800 text-white font-bold transition-all hover:bg-gray-700 opacity-70"
+                            >
+                        <div class="text-lg">🔍 COMPARAR</div>
+                        <div class="text-xs">Ver ambos</div>
+                    </button>
+                </div>
+                <div id="sind-Casino___Alimentación-SIL" class="sindicato-content-Casino___Alimentación" style="display: block">
+                    <div class="rounded-xl overflow-hidden border-2" style="border-color: #0053E2">
+                        <div class="px-6 py-4 text-white" style="background-color: #0053E2">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold">SIL</h3>
+                                    <p class="text-sm opacity-80">Sindicato Interempresa Líder</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-white/20 px-3 py-1 rounded-full text-sm">Pág 11, 25, 26, 30, 43, 44, 46, 72</div>
+                                    <div class="text-xs mt-1 opacity-70">CC SIL 2025-2027 (Firma 02.07.2025)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Hiper</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Express</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Ekono</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Walmart Mayorista</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50">
+                            <div class="clausula-box bg-white p-6 rounded-lg border max-h-[600px] overflow-y-auto">
+--- PÁGINA 11 ---
+
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+h) Una inasistencia mensual de lunes a viernes que no sea festivo. Por tanto, la ausencia no 
+puede ser fin de semana o festivo, ni aplica en jornadas de fin de semana o festivo 
+i) Los permisos autorizados por escrito que la empresa extienda voluntariamente o faculte 
+al trabajador para ausentarse de su lugar de trabajo o jornada laboral pactada. 
+j) La inasistencia derivada de los padres trabajadores, para asistir a sus hijos e hijas menores 
+de edad debidamente diagnosticados con trastorno del espectro autista, de acuerdo a la 
+Ley N 21.545 y el artículo 66 quinquies del Código del Trabajo. 
+La modificación del turno o la malla horaria programada, de común acuerdo, ingresada al 
+sistema de planificación de turnos por la respectiva Jefatura, de acuerdo a la constancia 
+escrita del cambio, deberá considerarse para la asistencia y horario de este bono. 
+ 
+ii) Registrar su horario de ingreso y de salida del trabajo en el sistema de control dispuesto, 
+sin dejar de hacerlo tanto a la entrada como a la salida. Ingresar puntualmente a cumplir 
+sus labores diarias a la hora fijada de acuerdo a los horarios establecidos. Se entenderá que 
+cumple con esta condición el trabajador que registre su ingreso y salida diaria, en caso 
+excepcional y eventualmente, no antes ni después de 15 minutos del horario respectivo de 
+inicio y término de la jornada diaria de trabajo. Para el personal que desempeñe funciones 
+de cajero la tolerancia detallada se extenderá hasta 20 minutos al término de la jornada. 
+No se considerará falta al deber de registro puntual, el registro post-término de la jornada 
+por causa inimputable al trabajador.  
+ 
+iii) Sin perjuicio de lo anterior, el monto señalado en el primer párrafo se pagará 
+parcialmente cuando el trabajador incurra en atrasos que sobrepasen el tiempo de 
+tolerancia señalado, en un porcentaje establecido en virtud de la cantidad de atrasos en el 
+mes, conforme a la siguiente tabla: 
+ 
+ 
+CANTIDAD MENSUAL DE 
+ATRASOS DE INICIO DE 
+JORNADA 
+% PORCENTAJE DEL BONO A PAGAR 
+UN ATRASO 
+75%  
+DOS ATRASOS 
+50% 
+TRES ATRASOS 
+25% 
+CUATRO ATRASOS 
+15% 
+CINCO O MÁS ATRASOS 
+0% 
+ 
+ 
+En caso de ser procedente la liquidación y pago del incentivo aludido, se pagará 
+conjuntamente con las remuneraciones ordinarias del mes siguiente a aquél en que se 
+devengó el incentivo por haber el trabajador dado cumplimiento a los requisitos señalados 
+anteriormente.
+
+--- PÁGINA 25 ---
+
+0.- CASINO Y ALIMENTACIÓN.  
+La empresa cuenta actualmente con un lugar para que sus trabajadores consuman 
+alimentos, el denominado “casino”, que se encuentra debidamente implementado y 
+alhajado para tales efectos. Adicionalmente, entrega alimentación gratuita a todos sus 
+trabajadores en forma diaria y de acuerdo al turno de trabajo que le corresponde laborar, 
+según el detalle que consta en Anexo al presente instrumento.  
+Las partes acuerdan que tal alimentación será entregada en los siguientes horarios:  
+- Horario de servicio de desayuno: entre las 07:00 horas y las 09:30 horas.  
+- Horario de servicio de almuerzo: entre las 12:00 horas y las 16:00 horas.  
+- Horario de servicio de once: entre las 17:00 horas y las 21:00 horas. En los locales operados 
+por Aramark, la Once es hasta las 19:00 horas en Formato Líder y en Formato Express. Se 
+deja servicio auto asistido hasta las 21:00 horas.  
+- Horario de servicio de cena: según la hora vigente en cada establecimiento. (Entre las 
+01:00 horas y 02:00 horas)  
+ 
+Se acuerda mantener el servicio de alimentación en los mismos términos que actualmente 
+se otorga, pero dos veces en el mes existirá en un “Almuerzo Mejorado”, que tendrá las 
+siguientes características:  
+a)  
+Un Almuerzo Mejorado que contiene variedad de ensaladas (uno al mes): se 
+planificarán 5 alternativas de ensaladas y el trabajador podrá escoger 3 variedades para 
+armar 1 porción. Además, podrá escoger 1 porción de topping a elección entre palmitos, 
+espárragos, aceitunas, palta, etc.  
+b)  
+Un Almuerzo Mejorado que contiene variedad de postres (uno al mes): se 
+planificarán 7 alternativas, de manera que el trabajador en este día pueda elegir hasta 3 
+postres para su consumo. 
+c)  
+En los días de Almuerzo Mejorado, el usuario podrá optar por una bebida o jugo (el 
+habitual del servicio).  
+Los trabajadores que presten servicios en jornada nocturna tendrán un servicio con dos 
+opciones de menú, similar en variedad, al almuerzo. Se instará a que sea el de mayor 
+preferencia y aporte calórico. 
+Adicional a lo anterior, al iniciar el almuerzo se ofrecerán tres alternativas de menú diario, 
+los cuales deberán estar a disposición de los trabajadores según horario de colación. 
+El tiempo que el trabajador destine a su colación será de 30 minutos y no formará parte de 
+la jornada de trabajo y no se considerará para determinar la extensión de la misma. El
+
+--- PÁGINA 26 ---
+
+ión gratuita, debiendo sólo registrar el inicio de ella. 
+A esto podrán acceder siempre y cuando el casino se encuentre en el horario determinado 
+para la entrega del servicio de almuerzo. 
+ 
+DESARROLLO Y RECONOCIMIENTO 
+21.- ELECCIÓN Y PREMIACIÓN MEJOR COLABORADOR DEL MES Y AÑO. 
+Las empresas, mensualmente dispone, en cada local, de un sistema que permite a los 
+trabajadores que en él presten servicios y que tengan hasta el cargo de primer ayudante, 
+elegir de entre todos los trabajadores, en conjunto con el Jefe de Ventas y otros ejecutivos 
+superiores, quién se distinguió por haber sido el mejor colaborador del mes.  
+El Premio consiste en una piocha de reconocimiento, y un bono por $124.190 pesos brutos. 
+ 
+SALUD Y CALIDAD DE VIDA. 
+22.- DESCUENTOS POR COMPRAS EN EL SUPERMERCADOS. 
+Todos los trabajadores de las empresas signadas en este Título, tienen derecho a obtener 
+un porcentaje de descuento sobre el precio a público de diversos artículos que expende, 
+manteniendo el beneficio en los términos otorgados a la fecha. 
+  
+23.- ASISTENCIA SOCIAL. 
+La empresa mantendrá un sistema de asistencia social, para atender en lo correspondiente 
+a sus trabajadores, la forma y modalidad será fijada por la empresa para garantizar una 
+atención eficiente y oportuna para el trabajador.  
+ 
+24.- ACTIVIDADES RECREATIVAS, DEPORTIVAS Y TALLERES PARA EL BIENESTAR DE LOS 
+TRABAJADORES. 
+Todos los trabajadores de las empresas signadas en este párrafo tendrán derecho a 
+participar voluntariamente de las actividades deportivas y recreativas que las empresas 
+financian, que determinen e informen oportunamente. 
+Una vez al año, las empresas celebrarán su aniversario. A través de un procedimiento, los 
+trabajadores de la tienda definirán si será un Paseo o Cena.
+
+--- PÁGINA 30 ---
+
+ble al trabajador.  
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+h) Una inasistencia mensual de lunes a viernes que no sea festivo. Por tanto, la ausencia no 
+puede ser fin de semana o festivo, ni aplica en jornadas de fin de semana o festivo
+
+--- PÁGINA 43 ---
+
+0.- CASINO Y ALIMENTACIÓN 
+1.- Desayuno y Onces: 
+Con relación al desayuno y onces, se establece que los trabajadores podrán acceder a este 
+servicio de acuerdo a los horarios en que les corresponda cumplir sus labores. Siendo así, el 
+desayuno se entregará hasta las 9:30 de la mañana.  
+Se establece que el tiempo para tomar el servicio de desayuno o de onces se entenderá 
+parte de la jornada laboral, el tiempo destinado no podrá exceder de 15 minutos cada vez. 
+En el caso del servicio de desayuno y Onces se entregará una alimentación como la que 
+actualmente se entrega, incluyendo un yogurt de marca propia o similar o fruta, de acuerdo 
+a la disponibilidad del local de alguna de las opciones. A las mujeres embarazadas se les 
+proporcionará en la mitad de su jornada un yogurt de marca propia o similar y una fruta, 
+según disponibilidad del local de alguna de las opciones 
+ 
+2.- Almuerzo: 
+Los trabajadores que ingresen a su turno desde las 14:00 en adelante tendrán derecho a 
+recibir almuerzo en el casino de forma previa al inicio de su jornada laboral, hasta las 15:00 
+horas, considerando que el horario de Onces comienza a las 16:00 hrs. Para lo anterior es 
+necesario que el trabajador almuerce antes del inicio de su jornada de la tarde, ya que el 
+horario de colación para el turno de tarde corresponde a la hora de Once. 
+El tiempo que el trabajador destine a su colación será de 30 minutos y no formará parte de 
+la jornada de trabajo ni se considerará para determinar la extensión de la misma. El tiempo 
+de descanso se contabilizará desde el momento en que el trabajador registre el inicio de su 
+descanso en el sistema que mantiene la empresa, debiendo registrar igualmente el término 
+de éste. 
+El horario del servicio de almuerzo será entregado desde las 12:00 
+ 
+ 
+TÍTULO V. CLÁUSULAS APLICABLES EXCLUSIVAMENTE A LOS TRABAJADORES SIN CARGO 
+DE JEFATURA DE EKONO LTDA.
+
+--- PÁGINA 44 ---
+
+les al trabajador.  
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+Sin perjuicio de lo anterior, no se considerarán ausencias o atrasos, exclusivamente:
+
+--- PÁGINA 46 ---
+
+res de ningún tipo. 
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+3) Contar con contrato de carácter indefinido. 
+Para estos efectos no se considerarán ausencias o atrasos, exclusivamente: 
+I. 
+Que otorga la ley en caso de fallecimiento del cónyuge, conviviente civil, de un hijo, 
+o de un hijo en período en gestación o del padre o de la madre del trabajador y los 
+días asociados al nacimiento de un hijo en el caso de los padres, así como cualquier 
+otro día en que la legislación laboral establezca algún permiso. Asimismo, en el caso 
+del permiso de 2 días por fallecimiento de hermanos y abuelos. 
+II. 
+Aquellos días en que se otorgue el permiso con ocasión del matrimonio o acuerdo 
+de unión civil de un colaborador, de acuerdo a la legislación laboral vigente. 
+III. 
+Inasistencias derivadas de un accidente del trabajo, accidente de trayecto y/o 
+enfermedades profesionales de acuerdo a lo dispuesto por la Ley 16.
+
+--- PÁGINA 72 ---
+
+s, levantadas previamente por la 
+organización sindical o por las Empresas. Con especial énfasis en casino. 
+ 
+CUARTA CLÁUSULA TRANSITORIA: REAJUSTE REAL DE SUELDOS BASE ÚNICO Y 
+EXCEPCIONAL PARA TRABAJADORES CON CARGO DE JEFATURA DE TODOS LOS 
+FORMATOS 
+Las partes han acordado una forma especial de reajuste o incremento de los sueldos base 
+de los trabajadores de las Empresas con cargo de Jefatura, negociadores e individualizados 
+en el Anexo Nº 1 adjunto.  
+El reajuste citado será de 1% (uno por ciento). 
+El reajuste citado, se aplicará siempre sobre el monto o valor de los sueldos vigentes al 01 
+de julio de
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sind-Casino___Alimentación-FED WM" class="sindicato-content-Casino___Alimentación" style="display: none">
+                    <div class="rounded-xl overflow-hidden border-2" style="border-color: #FFC220">
+                        <div class="px-6 py-4 text-white" style="background-color: #FFC220">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold">FED WM</h3>
+                                    <p class="text-sm opacity-80">Federación Nacional Walmart</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-white/20 px-3 py-1 rounded-full text-sm">Pág 22, 24, 25, 51</div>
+                                    <div class="text-xs mt-1 opacity-70">CC FED WM 15.12.2025 (Versión Definitiva)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Hiper</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Express</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Ekono</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Acuenta</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">SBA</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50">
+                            <div class="clausula-box bg-white p-6 rounded-lg border max-h-[600px] overflow-y-auto">
+--- PÁGINA 22 ---
+
+able al trabajador. 
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, retraso en la 
+marcación por apertura fuera de horarios no imputables al trabajador y fallas técnicas del sistema de 
+control. 
+h) Los días de ausencia acordada con motivo del Encuentro del Sindicato de empresa respectivo, previo 
+aviso oportuno y por escrito de dicha actividad.  
+i) Los días de fin de semana libre que pudiera tener un trabajador por el reconocimiento de la antigüedad 
+en la empresa, a que se refiere el párrafo final de la cláusula N°41 de este contrato colectivo. 
+j) Las ausencias que se originen por un hecho no imputable al trabajador, acreditado de manera fehaciente 
+(por ejemplo: denuncia en Carabineros o certificado de constatación de lesiones en caso de asalto) o por 
+otro medio verosímil.
+
+--- PÁGINA 24 ---
+
+1.     CASINO Y ALIMENTACIÓN  
+La empresa cuenta actualmente con un lugar para que sus trabajadores consuman alimentos, el 
+denominado “casino”, que se encuentra debidamente implementado y alhajado para tales efectos. 
+Adicionalmente, entrega alimentación gratuita a todos sus trabajadores en forma diaria y de acuerdo al 
+turno de trabajo que le corresponde laborar, según el detalle que consta en Anexo al presente instrumento.  
+Actualmente, la alimentación es entregada en los siguientes horarios:  
+- Horario de servicio de desayuno: entre las 07:00 horas y las 09:30 horas.  
+- Horario de servicio de almuerzo: entre las 12:00 horas y las 16:00 horas.  
+- Horario de servicio de once: entre las 17:00 horas y las 19:00 horas. En los locales operados por 
+Aramark, la Once es hasta las 19:00 horas en Formato Líder y en Formato Express.
+
+--- PÁGINA 25 ---
+
+fecto alguno, debiendo sólo registrar el inicio de ella. A esto 
+podrán acceder siempre y cuando el casino se encuentre en el horario determinado para la entrega del 
+servicio de almuerzo. 
+ 
+12. 
+ASIGNACIÓN DE MOVILIZACIÓN 
+ 
+12.1 Trabajadores que se desempeñan en Locales dentro de la Región Metropolitana o en aquellos que 
+no aparezcan especificados en los numerales siguientes. 
+A cada trabajador afecto al presente Contrato se pagará, por cada día legalmente trabajado, una 
+asignación de movilización consistente en la suma de $ 1.750.-  
+12.2 Trabajadores que se desempeñan en Locales fuera de la Región Metropolitana:
+
+--- PÁGINA 51 ---
+
+les al trabajador.  
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, retraso en la 
+marcación por apertura fuera de horarios no imputables al trabajador y fallas técnicas del sistema de 
+control que no sean imputables al trabajador. 
+Sin perjuicio de lo anterior, no se considerarán ausencias o atrasos, exclusivamente: 
+i) 
+Los días que otorga la ley en caso de fallecimiento del cónyuge, conviviente civil, de un hijo, 
+o de un hijo en período de gestación o del padre o de la madre del trabajador y los días 
+asociados al nacimiento de un hijo en el caso de los padres, así cualquier otro día que la ley 
+establezca como permiso. 
+ii) 
+Aquellos días en que se otorgue el permiso con ocasión del matrimonio o acuerdo de unión 
+civil de un colaborador, de acuerdo a la legislación laboral vigente 
+iii) 
+Inasistencias derivadas de un accidente del trabajo, accidente de trayecto y/o enfermedades 
+profesionales de acuerdo a lo dispuesto por la Ley 16.744, justificadas con la correspondiente 
+licencia médica. En estas situaciones, el incentivo se pagará al trabajador en proporción a los 
+días efectivamente trabajados en el mes. 
+El bono detallado en esta cláusula se pagará al trabajador junto con las remuneraciones ordinarias del 
+mes siguiente a aquel en que fue devengado. 
+ 
+4.- BONO DE RESPONSABILIDAD POR REEMPLAZO DE JEFATURA 
+Aquellos trabajadores que reemplacen en sus funciones a su superior jerárquico a cargo de alguna 
+sección, sea Jefe o, en ausencia de éste, al primer ayudante, siempre que esté a cargo de alguna de las 
+secciones del supermercado, debidamente determinado por la Administración, por más de tres meses de 
+reemplazo recibirá un bono de $32.990 pesos brutos: 
+Con todo, el reemplazo en ningún caso podrá extenderse más allá de seis meses o bien, más allá del 
+tiempo que dure la ausencia que dio origen al reemplazo. Transcurrido este lapso de tiempo, o 
+declarándose vacante el cargo, las empresas deberá designar al Superior Jerárquico de la respectiva 
+sección de acuerdo a sus políticas de selección. 
+La liquidación y pago de este bono se efectuará conjuntamente con las remuneraciones ordinarias del 
+mes siguiente a aquel en que la asignación se devengó. 
+En el evento que en alguno de los locales donde presten servicios algunos de los trabajadores afectos al 
+monto o condiciones de esta asignación, sean superiores o más beneficiosos a las escritas en esta cláusula, 
+primarán aquellas. 
+La designación del reemplazante deberá ser realizada en forma expresa, vía anexo individual u otro 
+antecedente fidedigno. La designación recaerá, preferentemente, sobre otro trabajador perteneciente a la 
+misma sección de la jefatura reemplazada, y en caso que no existiere constancia expresa de haberse 
+realizado, se entenderá que el reemplazo ha sido realizado por el Primer Ayudante o el trabajador que 
+estuviere realizando sus funciones.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sind-Casino___Alimentación-TODOS" class="sindicato-content-Casino___Alimentación" style="display: none">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="rounded-xl overflow-hidden border-2" style="border-color: #0053E2">
+                            <div class="px-4 py-3 text-white font-bold" style="background-color: #0053E2">
+                                <span>SIL</span>
+                                <span class="float-right bg-white/20 px-2 py-1 rounded text-sm">Pág 11, 25, 26, 30, 43, 44, 46, 72</span>
+                            </div>
+                            <div class="p-4 bg-gray-50">
+                                <div class="clausula-box bg-white p-4 rounded border max-h-[500px] overflow-y-auto text-sm">
+--- PÁGINA 11 ---
+
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+h) Una inasistencia mensual de lunes a viernes que no sea festivo. Por tanto, la ausencia no 
+puede ser fin de semana o festivo, ni aplica en jornadas de fin de semana o festivo 
+i) Los permisos autorizados por escrito que la empresa extienda voluntariamente o faculte 
+al trabajador para ausentarse de su lugar de trabajo o jornada laboral pactada. 
+j) La inasistencia derivada de los padres trabajadores, para asistir a sus hijos e hijas menores 
+de edad debidamente diagnosticados con trastorno del espectro autista, de acuerdo a la 
+Ley N 21.545 y el artículo 66 quinquies del Código del Trabajo. 
+La modificación del turno o la malla horaria programada, de común acuerdo, ingresada al 
+sistema de planificación de turnos por la respectiva Jefatura, de acuerdo a la constancia 
+escrita del cambio, deberá considerarse para la asistencia y horario de este bono. 
+ 
+ii) Registrar su horario de ingreso y de salida del trabajo en el sistema de control dispuesto, 
+sin dejar de hacerlo tanto a la entrada como a la salida. Ingresar puntualmente a cumplir 
+sus labores diarias a la hora fijada de acuerdo a los horarios establecidos. Se entenderá que 
+cumple con esta condición el trabajador que registre su ingreso y salida diaria, en caso 
+excepcional y eventualmente, no antes ni después de 15 minutos del horario respectivo de 
+inicio y término de la jornada diaria de trabajo. Para el personal que desempeñe funciones 
+de cajero la tolerancia detallada se extenderá hasta 20 minutos al término de la jornada. 
+No se considerará falta al deber de registro puntual, el registro post-término de la jornada 
+por causa inimputable al trabajador.  
+ 
+iii) Sin perjuicio de lo anterior, el monto señalado en el primer párrafo se pagará 
+parcialmente cuando el trabajador incurra en atrasos que sobrepasen el tiempo de 
+tolerancia señalado, en un porcentaje establecido en virtud de la cantidad de atrasos en el 
+mes, conforme a la siguiente tabla: 
+ 
+ 
+CANTIDAD MENSUAL DE 
+ATRASOS DE INICIO DE 
+JORNADA 
+% PORCENTAJE DEL BONO A PAGAR 
+UN ATRASO 
+75%  
+DOS ATRASOS 
+50% 
+TRES ATRASOS 
+25% 
+CUATRO ATRASOS 
+15% 
+CINCO O MÁS ATRASOS 
+0% 
+ 
+ 
+En caso de ser procedente la liquidación y pago del incentivo aludido, se pagará 
+conjuntamente con las remuneraciones ordinarias del mes siguiente a aquél en que se 
+devengó el incentivo por haber el trabajador dado cumplimiento a los requisitos señalados 
+anteriormente.
+
+--- PÁGINA 25 ---
+
+0.- CASINO Y ALIMENTACIÓN.  
+La empresa cuenta actualmente con un lugar para que sus trabajadores consuman 
+alimentos, el denominado “casino”, que se encuentra debidamente implementado y 
+alhajado para tales efectos. Adicionalmente, entrega alimentación gratuita a todos sus 
+trabajadores en forma diaria y de acuerdo al turno de trabajo que le corresponde laborar, 
+según el detalle que consta en Anexo al presente instrumento.  
+Las partes acuerdan que tal alimentación será entregada en los siguientes horarios:  
+- Horario de servicio de desayuno: entre las 07:00 horas y las 09:30 horas.  
+- Horario de servicio de almuerzo: entre las 12:00 horas y las 16:00 horas.  
+- Horario de servicio de once: entre las 17:00 horas y las 21:00 horas. En los locales operados 
+por Aramark, la Once es hasta las 19:00 horas en Formato Líder y en Formato Express. Se 
+deja servicio auto asistido hasta las 21:00 horas.  
+- Horario de servicio de cena: según la hora vigente en cada establecimiento. (Entre las 
+01:00 horas y 02:00 horas)  
+ 
+Se acuerda mantener el servicio de alimentación en los mismos términos que actualmente 
+se otorga, pero dos veces en el mes existirá en un “Almuerzo Mejorado”, que tendrá las 
+siguientes características:  
+a)  
+Un Almuerzo Mejorado que contiene variedad de ensaladas (uno al mes): se 
+planificarán 5 alternativas de ensaladas y el trabajador podrá escoger 3 variedades para 
+armar 1 porción. Además, podrá escoger 1 porción de topping a elección entre palmitos, 
+espárragos, aceitunas, palta, etc.  
+b)  
+Un Almuerzo Mejorado que contiene variedad de postres (uno al mes): se 
+planificarán 7 alternativas, de manera que el trabajador en este día pueda elegir hasta 3 
+postres para su consumo. 
+c)  
+En los días de Almuerzo Mejorado, el usuario podrá optar por una bebida o jugo (el 
+habitual del servicio).  
+Los trabajadores que presten servicios en jornada nocturna tendrán un servicio con dos 
+opciones de menú, similar en variedad, al almuerzo. Se instará a que sea el de mayor 
+preferencia y aporte calórico. 
+Adicional a lo anterior, al iniciar el almuerzo se ofrecerán tres alternativas de menú diario, 
+los cuales deberán estar a disposición de los trabajadores según horario de colación. 
+El tiempo que el trabajador destine a su colación será de 30 minutos y no formará parte de 
+la jornada de trabajo y no se considerará para determinar la extensión de la misma. El
+
+--- PÁGINA 26 ---
+
+ión gratuita, debiendo sólo registrar el inicio de ella. 
+A esto podrán acceder siempre y cuando el casino se encuentre en el horario determinado 
+para la entrega del servicio de almuerzo. 
+ 
+DESARROLLO Y RECONOCIMIENTO 
+21.- ELECCIÓN Y PREMIACIÓN MEJOR COLABORADOR DEL MES Y AÑO. 
+Las empresas, mensualmente dispone, en cada local, de un sistema que permite a los 
+trabajadores que en él presten servicios y que tengan hasta el cargo de primer ayudante, 
+elegir de entre todos los trabajadores, en conjunto con el Jefe de Ventas y otros ejecutivos 
+superiores, quién se distinguió por haber sido el mejor colaborador del mes.  
+El Premio consiste en una piocha de reconocimiento, y un bono por $124.190 pesos brutos. 
+ 
+SALUD Y CALIDAD DE VIDA. 
+22.- DESCUENTOS POR COMPRAS EN EL SUPERMERCADOS. 
+Todos los trabajadores de las empresas signadas en este Título, tienen derecho a obtener 
+un porcentaje de descuento sobre el precio a público de diversos artículos que expende, 
+manteniendo el beneficio en los términos otorgados a la fecha. 
+  
+23.- ASISTENCIA SOCIAL. 
+La empresa mantendrá un sistema de asistencia social, para atender en lo correspondiente 
+a sus trabajadores, la forma y modalidad será fijada por la empresa para garantizar una 
+atención eficiente y oportuna para el trabajador.  
+ 
+24.- ACTIVIDADES RECREATIVAS, DEPORTIVAS Y TALLERES PARA EL BIENESTAR DE LOS 
+TRABAJADORES. 
+Todos los trabajadores de las empresas signadas en este párrafo tendrán derecho a 
+participar voluntariamente de las actividades deportivas y recreativas que las empresas 
+financian, que determinen e informen oportunamente. 
+Una vez al año, las empresas celebrarán su aniversario. A través de un procedimiento, los 
+trabajadores de la tienda definirán si será un Paseo o Cena.
+
+--- PÁGINA 30 ---
+
+ble al trabajador.  
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+h) Una inasistencia mensual de lunes a viernes que no sea festivo. Por tanto, la ausencia no 
+puede ser fin de semana o festivo, ni aplica en jornadas de fin de semana o festivo
+
+--- PÁGINA 43 ---
+
+0.- CASINO Y ALIMENTACIÓN 
+1.- Desayuno y Onces: 
+Con relación al desayuno y onces, se establece que los trabajadores podrán acceder a este 
+servicio de acuerdo a los horarios en que les corresponda cumplir sus labores. Siendo así, el 
+desayuno se entregará hasta las 9:30 de la mañana.  
+Se establece que el tiempo para tomar el servicio de desayuno o de onces se entenderá 
+parte de la jornada laboral, el tiempo destinado no podrá exceder de 15 minutos cada vez. 
+En el caso del servicio de desayuno y Onces se entregará una alimentación como la que 
+actualmente se entrega, incluyendo un yogurt de marca propia o similar o fruta, de acuerdo 
+a la disponibilidad del local de alguna de las opciones. A las mujeres embarazadas se les 
+proporcionará en la mitad de su jornada un yogurt de marca propia o similar y una fruta, 
+según disponibilidad del local de alguna de las opciones 
+ 
+2.- Almuerzo: 
+Los trabajadores que ingresen a su turno desde las 14:00 en adelante tendrán derecho a 
+recibir almuerzo en el casino de forma previa al inicio de su jornada laboral, hasta las 15:00 
+horas, considerando que el horario de Onces comienza a las 16:00 hrs. Para lo anterior es 
+necesario que el trabajador almuerce antes del inicio de su jornada de la tarde, ya que el 
+horario de colación para el turno de tarde corresponde a la hora de Once. 
+El tiempo que el trabajador destine a su colación será de 30 minutos y no formará parte de 
+la jornada de trabajo ni se considerará para determinar la extensión de la misma. El tiempo 
+de descanso se contabilizará desde el momento en que el trabajador registre el inicio de su 
+descanso en el sistema que mantiene la empresa, debiendo registrar igualmente el término 
+de éste. 
+El horario del servicio de almuerzo será entregado desde las 12:00 
+ 
+ 
+TÍTULO V. CLÁUSULAS APLICABLES EXCLUSIVAMENTE A LOS TRABAJADORES SIN CARGO 
+DE JEFATURA DE EKONO LTDA.
+
+--- PÁGINA 44 ---
+
+les al trabajador.  
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+Sin perjuicio de lo anterior, no se considerarán ausencias o atrasos, exclusivamente:
+
+--- PÁGINA 46 ---
+
+res de ningún tipo. 
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, 
+retraso en la marcación por apertura fuera de horarios no imputables al trabajador y fallas 
+técnicas del sistema de control que no sean imputables al trabajador. 
+3) Contar con contrato de carácter indefinido. 
+Para estos efectos no se considerarán ausencias o atrasos, exclusivamente: 
+I. 
+Que otorga la ley en caso de fallecimiento del cónyuge, conviviente civil, de un hijo, 
+o de un hijo en período en gestación o del padre o de la madre del trabajador y los 
+días asociados al nacimiento de un hijo en el caso de los padres, así como cualquier 
+otro día en que la legislación laboral establezca algún permiso. Asimismo, en el caso 
+del permiso de 2 días por fallecimiento de hermanos y abuelos. 
+II. 
+Aquellos días en que se otorgue el permiso con ocasión del matrimonio o acuerdo 
+de unión civil de un colaborador, de acuerdo a la legislación laboral vigente. 
+III. 
+Inasistencias derivadas de un accidente del trabajo, accidente de trayecto y/o 
+enfermedades profesionales de acuerdo a lo dispuesto por la Ley 16.
+
+--- PÁGINA 72 ---
+
+s, levantadas previamente por la 
+organización sindical o por las Empresas. Con especial énfasis en casino. 
+ 
+CUARTA CLÁUSULA TRANSITORIA: REAJUSTE REAL DE SUELDOS BASE ÚNICO Y 
+EXCEPCIONAL PARA TRABAJADORES CON CARGO DE JEFATURA DE TODOS LOS 
+FORMATOS 
+Las partes han acordado una forma especial de reajuste o incremento de los sueldos base 
+de los trabajadores de las Empresas con cargo de Jefatura, negociadores e individualizados 
+en el Anexo Nº 1 adjunto.  
+El reajuste citado será de 1% (uno por ciento). 
+El reajuste citado, se aplicará siempre sobre el monto o valor de los sueldos vigentes al 01 
+de julio de
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border-2" style="border-color: #FFC220">
+                            <div class="px-4 py-3 text-white font-bold" style="background-color: #FFC220">
+                                <span>FED WM</span>
+                                <span class="float-right bg-white/20 px-2 py-1 rounded text-sm">Pág 22, 24, 25, 51</span>
+                            </div>
+                            <div class="p-4 bg-gray-50">
+                                <div class="clausula-box bg-white p-4 rounded border max-h-[500px] overflow-y-auto text-sm">
+--- PÁGINA 22 ---
+
+able al trabajador. 
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, retraso en la 
+marcación por apertura fuera de horarios no imputables al trabajador y fallas técnicas del sistema de 
+control. 
+h) Los días de ausencia acordada con motivo del Encuentro del Sindicato de empresa respectivo, previo 
+aviso oportuno y por escrito de dicha actividad.  
+i) Los días de fin de semana libre que pudiera tener un trabajador por el reconocimiento de la antigüedad 
+en la empresa, a que se refiere el párrafo final de la cláusula N°41 de este contrato colectivo. 
+j) Las ausencias que se originen por un hecho no imputable al trabajador, acreditado de manera fehaciente 
+(por ejemplo: denuncia en Carabineros o certificado de constatación de lesiones en caso de asalto) o por 
+otro medio verosímil.
+
+--- PÁGINA 24 ---
+
+1.     CASINO Y ALIMENTACIÓN  
+La empresa cuenta actualmente con un lugar para que sus trabajadores consuman alimentos, el 
+denominado “casino”, que se encuentra debidamente implementado y alhajado para tales efectos. 
+Adicionalmente, entrega alimentación gratuita a todos sus trabajadores en forma diaria y de acuerdo al 
+turno de trabajo que le corresponde laborar, según el detalle que consta en Anexo al presente instrumento.  
+Actualmente, la alimentación es entregada en los siguientes horarios:  
+- Horario de servicio de desayuno: entre las 07:00 horas y las 09:30 horas.  
+- Horario de servicio de almuerzo: entre las 12:00 horas y las 16:00 horas.  
+- Horario de servicio de once: entre las 17:00 horas y las 19:00 horas. En los locales operados por 
+Aramark, la Once es hasta las 19:00 horas en Formato Líder y en Formato Express.
+
+--- PÁGINA 25 ---
+
+fecto alguno, debiendo sólo registrar el inicio de ella. A esto 
+podrán acceder siempre y cuando el casino se encuentre en el horario determinado para la entrega del 
+servicio de almuerzo. 
+ 
+12. 
+ASIGNACIÓN DE MOVILIZACIÓN 
+ 
+12.1 Trabajadores que se desempeñan en Locales dentro de la Región Metropolitana o en aquellos que 
+no aparezcan especificados en los numerales siguientes. 
+A cada trabajador afecto al presente Contrato se pagará, por cada día legalmente trabajado, una 
+asignación de movilización consistente en la suma de $ 1.750.-  
+12.2 Trabajadores que se desempeñan en Locales fuera de la Región Metropolitana:
+
+--- PÁGINA 51 ---
+
+les al trabajador.  
+No serán considerados aquellos errores de marcación con ocasión del horario de colación, retraso en la 
+marcación por apertura fuera de horarios no imputables al trabajador y fallas técnicas del sistema de 
+control que no sean imputables al trabajador. 
+Sin perjuicio de lo anterior, no se considerarán ausencias o atrasos, exclusivamente: 
+i) 
+Los días que otorga la ley en caso de fallecimiento del cónyuge, conviviente civil, de un hijo, 
+o de un hijo en período de gestación o del padre o de la madre del trabajador y los días 
+asociados al nacimiento de un hijo en el caso de los padres, así cualquier otro día que la ley 
+establezca como permiso. 
+ii) 
+Aquellos días en que se otorgue el permiso con ocasión del matrimonio o acuerdo de unión 
+civil de un colaborador, de acuerdo a la legislación laboral vigente 
+iii) 
+Inasistencias derivadas de un accidente del trabajo, accidente de trayecto y/o enfermedades 
+profesionales de acuerdo a lo dispuesto por la Ley 16.744, justificadas con la correspondiente 
+licencia médica. En estas situaciones, el incentivo se pagará al trabajador en proporción a los 
+días efectivamente trabajados en el mes. 
+El bono detallado en esta cláusula se pagará al trabajador junto con las remuneraciones ordinarias del 
+mes siguiente a aquel en que fue devengado. 
+ 
+4.- BONO DE RESPONSABILIDAD POR REEMPLAZO DE JEFATURA 
+Aquellos trabajadores que reemplacen en sus funciones a su superior jerárquico a cargo de alguna 
+sección, sea Jefe o, en ausencia de éste, al primer ayudante, siempre que esté a cargo de alguna de las 
+secciones del supermercado, debidamente determinado por la Administración, por más de tres meses de 
+reemplazo recibirá un bono de $32.990 pesos brutos: 
+Con todo, el reemplazo en ningún caso podrá extenderse más allá de seis meses o bien, más allá del 
+tiempo que dure la ausencia que dio origen al reemplazo. Transcurrido este lapso de tiempo, o 
+declarándose vacante el cargo, las empresas deberá designar al Superior Jerárquico de la respectiva 
+sección de acuerdo a sus políticas de selección. 
+La liquidación y pago de este bono se efectuará conjuntamente con las remuneraciones ordinarias del 
+mes siguiente a aquel en que la asignación se devengó. 
+En el evento que en alguno de los locales donde presten servicios algunos de los trabajadores afectos al 
+monto o condiciones de esta asignación, sean superiores o más beneficiosos a las escritas en esta cláusula, 
+primarán aquellas. 
+La designación del reemplazante deberá ser realizada en forma expresa, vía anexo individual u otro 
+antecedente fidedigno. La designación recaerá, preferentemente, sobre otro trabajador perteneciente a la 
+misma sección de la jefatura reemplazada, y en caso que no existiere constancia expresa de haberse 
+realizado, se entenderá que el reemplazo ha sido realizado por el Primer Ayudante o el trabajador que 
+estuviere realizando sus funciones.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-Uniformes" style="display: none">
+                <h2 class="text-2xl font-bold mb-4" style="color: #76C8E8">
+                    👔 Uniformes
+                </h2>
+                
+                <!-- Botones de Sindicato -->
+                <div class="flex flex-wrap gap-4 mb-6 no-print">
+                    <button onclick="showSindicato('Uniformes', 'SIL')" 
+                            id="btn-Uniformes-SIL"
+                            class="flex-1 min-w-[200px] p-4 rounded-xl text-white font-bold transition-all hover:opacity-100 sind-btn-active"
+                            style="background-color: #0053E2">
+                        <div class="text-lg">SIL</div>
+                        <div class="text-xs opacity-80">Sindicato Interempresa Líder</div>
+                        <div class="text-xs mt-2 opacity-60">Hiper, Express, Ekono...</div>
+                    </button>
+                    <button onclick="showSindicato('Uniformes', 'FED WM')" 
+                            id="btn-Uniformes-FED WM"
+                            class="flex-1 min-w-[200px] p-4 rounded-xl text-white font-bold transition-all hover:opacity-100 opacity-70"
+                            style="background-color: #FFC220">
+                        <div class="text-lg">FED WM</div>
+                        <div class="text-xs opacity-80">Federación Nacional Walmart</div>
+                        <div class="text-xs mt-2 opacity-60">Hiper, Express, Ekono...</div>
+                    </button>
+                    <button onclick="showSindicato('Uniformes')"
+                            id="btn-Uniformes-TODOS"
+                            class="min-w-[150px] p-4 rounded-xl bg-gray-800 text-white font-bold transition-all hover:bg-gray-700 opacity-70"
+                            >
+                        <div class="text-lg">🔍 COMPARAR</div>
+                        <div class="text-xs">Ver ambos</div>
+                    </button>
+                </div>
+                <div id="sind-Uniformes-SIL" class="sindicato-content-Uniformes" style="display: block">
+                    <div class="rounded-xl overflow-hidden border-2" style="border-color: #0053E2">
+                        <div class="px-6 py-4 text-white" style="background-color: #0053E2">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold">SIL</h3>
+                                    <p class="text-sm opacity-80">Sindicato Interempresa Líder</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-white/20 px-3 py-1 rounded-full text-sm">Pág 4</div>
+                                    <div class="text-xs mt-1 opacity-70">CC SIL 2025-2027 (Firma 02.07.2025)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Hiper</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Express</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Ekono</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Walmart Mayorista</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50">
+                            <div class="clausula-box bg-white p-6 rounded-lg border max-h-[600px] overflow-y-auto">
+s en el acápite del presente contrato colectivo. Así, no se aplicarán a los Jefes las 
+cláusulas de Bono de Asistencia y Marcación, jornada semanal y ropa de trabajo.  
+2.- PRÉSTAMO SIL 
+En el mes de febrero de cada año, la empresa otorgará, a los trabajadores individualizados 
+en Anexo adjunto, que así lo soliciten, un préstamo especial de $170.000 (ciento setenta 
+mil pesos), el cual podrá ser solicitado desde la tercera semana de diciembre hasta el mes 
+de enero de cada año y será restituido en cuotas mensuales, iguales y sucesivas que serán 
+descontadas en un plazo de hasta once meses contados desde el mes de marzo respectivo, 
+sin reajustes, ni interés. 
+Las partes acuerdan que el pago de cada cuota se hará mediante la correspondiente 
+deducción de las remuneraciones mensuales del trabajador, entendiéndose conferida la 
+autorización irrevocable para ello, por el sólo hecho de solicitar el préstamo referido. 
+En caso de que por cualquier motivo el contrato de trabajo del trabajador llegare a su 
+término antes del pago de la totalidad de las cuotas convenidas, el saldo insoluto adeudado 
+se deducirá de los haberes que le correspondan que le sean pagadas en el respectivo 
+finiquito, incluida la indemnización por años de servicios, autorización que se entenderá 
+conferida por el solo hecho de solicitar el préstamo. 
+Al préstamo indicado sólo podrán optar aquellos trabajadores cuya remuneración mensual 
+y las demás deudas o pagos que se deducen de las remuneraciones, les permita pagar la 
+cuota respectiva sin que se infrinja el límite máximo de 15% de la remuneración total 
+mensual que dispone el inciso segundo del artículo 58 del Código del Trabajo.  
+Para efectos de la determinación del máximo a solicitar, el análisis del límite máximo de 
+endeudamiento se realizará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sind-Uniformes-FED WM" class="sindicato-content-Uniformes" style="display: none">
+                    <div class="rounded-xl overflow-hidden border-2" style="border-color: #FFC220">
+                        <div class="px-6 py-4 text-white" style="background-color: #FFC220">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold">FED WM</h3>
+                                    <p class="text-sm opacity-80">Federación Nacional Walmart</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-white/20 px-3 py-1 rounded-full text-sm">Pág 20</div>
+                                    <div class="text-xs mt-1 opacity-70">CC FED WM 15.12.2025 (Versión Definitiva)</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Hiper</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Express</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Ekono</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">Acuenta</span>
+                                <span class="bg-white/20 px-2 py-1 rounded text-xs">SBA</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50">
+                            <div class="clausula-box bg-white p-6 rounded-lg border max-h-[600px] overflow-y-auto">
+20 
+trabajo y uniformes, que se detalla a continuación: 
+1.    Cajeros de Jornadas semanales de 44 y 30 horas: 
+• 2 poleras manga larga durante el mes de marzo. 
+• 2 poleras de manga corta durante el mes de septiembre 
+• 2 pantalones al año (reposición según desgaste natural y no provocado)  
+• 2 polar en el mes de marzo 
+• 1 par de Zapatos de material natural y antideslizantes (reemplazo según necesidad) 
+• 1 cinturón de tela
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sind-Uniformes-TODOS" class="sindicato-content-Uniformes" style="display: none">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="rounded-xl overflow-hidden border-2" style="border-color: #0053E2">
+                            <div class="px-4 py-3 text-white font-bold" style="background-color: #0053E2">
+                                <span>SIL</span>
+                                <span class="float-right bg-white/20 px-2 py-1 rounded text-sm">Pág 4</span>
+                            </div>
+                            <div class="p-4 bg-gray-50">
+                                <div class="clausula-box bg-white p-4 rounded border max-h-[500px] overflow-y-auto text-sm">
+s en el acápite del presente contrato colectivo. Así, no se aplicarán a los Jefes las 
+cláusulas de Bono de Asistencia y Marcación, jornada semanal y ropa de trabajo.  
+2.- PRÉSTAMO SIL 
+En el mes de febrero de cada año, la empresa otorgará, a los trabajadores individualizados 
+en Anexo adjunto, que así lo soliciten, un préstamo especial de $170.000 (ciento setenta 
+mil pesos), el cual podrá ser solicitado desde la tercera semana de diciembre hasta el mes 
+de enero de cada año y será restituido en cuotas mensuales, iguales y sucesivas que serán 
+descontadas en un plazo de hasta once meses contados desde el mes de marzo respectivo, 
+sin reajustes, ni interés. 
+Las partes acuerdan que el pago de cada cuota se hará mediante la correspondiente 
+deducción de las remuneraciones mensuales del trabajador, entendiéndose conferida la 
+autorización irrevocable para ello, por el sólo hecho de solicitar el préstamo referido. 
+En caso de que por cualquier motivo el contrato de trabajo del trabajador llegare a su 
+término antes del pago de la totalidad de las cuotas convenidas, el saldo insoluto adeudado 
+se deducirá de los haberes que le correspondan que le sean pagadas en el respectivo 
+finiquito, incluida la indemnización por años de servicios, autorización que se entenderá 
+conferida por el solo hecho de solicitar el préstamo. 
+Al préstamo indicado sólo podrán optar aquellos trabajadores cuya remuneración mensual 
+y las demás deudas o pagos que se deducen de las remuneraciones, les permita pagar la 
+cuota respectiva sin que se infrinja el límite máximo de 15% de la remuneración total 
+mensual que dispone el inciso segundo del artículo 58 del Código del Trabajo.  
+Para efectos de la determinación del máximo a solicitar, el análisis del límite máximo de 
+endeudamiento se realizará sin considerar la o las cuotas del mismo préstamo 
+anteriormente solicitado.  
+3.- DESARROLLO Y RECONOCIMIENTO. 
+a) PREMIO MEJOR DEL AÑO (EX BECA
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border-2" style="border-color: #FFC220">
+                            <div class="px-4 py-3 text-white font-bold" style="background-color: #FFC220">
+                                <span>FED WM</span>
+                                <span class="float-right bg-white/20 px-2 py-1 rounded text-sm">Pág 20</span>
+                            </div>
+                            <div class="p-4 bg-gray-50">
+                                <div class="clausula-box bg-white p-4 rounded border max-h-[500px] overflow-y-auto text-sm">
+20 
+trabajo y uniformes, que se detalla a continuación: 
+1.    Cajeros de Jornadas semanales de 44 y 30 horas: 
+• 2 poleras manga larga durante el mes de marzo. 
+• 2 poleras de manga corta durante el mes de septiembre 
+• 2 pantalones al año (reposición según desgaste natural y no provocado)  
+• 2 polar en el mes de marzo 
+• 1 par de Zapatos de material natural y antideslizantes (reemplazo según necesidad) 
+• 1 cinturón de tela
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón Imprimir -->
+        <div class="mt-6 text-center no-print">
+            <button onclick="window.print()" class="walmart-blue text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition mr-4">
+                🖨️ Imprimir
+            </button>
+            <button onclick="exportarTexto()" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+                💾 Exportar Texto
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-4 mt-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>Generado por Code Puppy 🐶 | Walmart Chile</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tema) {
+            document.querySelectorAll('[id^="content-"]').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('[id^="tab-"]').forEach(el => el.classList.remove('tab-active'));
+            document.getElementById('content-' + tema).style.display = 'block';
+            document.getElementById('tab-' + tema).classList.add('tab-active');
+        }
+        
+        function showSindicato(tema, sindicato) {
+            // Ocultar todos los contenidos de sindicato para este tema
+            document.querySelectorAll('.sindicato-content-' + tema).forEach(el => el.style.display = 'none');
+            
+            // Desactivar todos los botones
+            document.querySelectorAll('[id^="btn-' + tema + '-"]').forEach(el => {
+                el.classList.remove('sind-btn-active');
+                el.classList.add('opacity-70');
+            });
+            
+            // Mostrar el sindicato seleccionado
+            const targetId = sindicato ? 'sind-' + tema + '-' + sindicato : 'sind-' + tema + '-TODOS';
+            document.getElementById(targetId).style.display = 'block';
+            
+            // Activar botón
+            const btnId = sindicato ? 'btn-' + tema + '-' + sindicato : 'btn-' + tema + '-TODOS';
+            const btn = document.getElementById(btnId);
+            btn.classList.add('sind-btn-active');
+            btn.classList.remove('opacity-70');
+        }
+        
+        function exportarTexto() {
+            const content = document.body.innerText;
+            const blob = new Blob([content], {type: 'text/plain'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'comparativo_clausulas.txt';
+            a.click();
+        }
+    </script>
+</body>
+</html>

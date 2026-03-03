@@ -1,0 +1,79 @@
+{% if solicitudes %}
+<table class="w-full">
+    <thead class="bg-gray-50 border-b">
+        <tr>
+            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">#</th>
+            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Tienda</th>
+            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Cargo SSMM</th>
+            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Cant.</th>
+            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Fecha</th>
+            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Turno</th>
+            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Estado</th>
+            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Acciones</th>
+        </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+        {% for s in solicitudes %}
+        <tr class="hover:bg-gray-50 transition">
+            <td class="px-4 py-3 text-sm font-mono text-gray-500">{{ s.id }}</td>
+            <td class="px-4 py-3">
+                <div class="font-semibold text-gray-800">{{ s.tienda }}</div>
+                <div class="text-xs text-gray-500">{{ s.mercado or '' }}</div>
+            </td>
+            <td class="px-4 py-3 text-sm text-gray-700">{{ s.cargo_ssmm }}</td>
+            <td class="px-4 py-3">
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-walmart-blue text-white font-bold text-sm">
+                    {{ s.cantidad }}
+                </span>
+            </td>
+            <td class="px-4 py-3 text-sm text-gray-700">{{ s.fecha_evento }}</td>
+            <td class="px-4 py-3 text-sm text-gray-700 capitalize">{{ s.turno }}</td>
+            <td class="px-4 py-3">
+                {% if s.estado == 'pendiente' %}
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                    ⏳ Pendiente
+                </span>
+                {% elif s.estado == 'aprobada' %}
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                    ✅ Aprobada
+                </span>
+                {% elif s.estado == 'rechazada' %}
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    ❌ Rechazada
+                </span>
+                {% else %}
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                    {{ s.estado }}
+                </span>
+                {% endif %}
+            </td>
+            <td class="px-4 py-3">
+                <div class="flex gap-1">
+                    <form hx-post="/solicitudes/{{ s.id }}/estado" hx-target="#tabla-container" hx-swap="innerHTML" class="inline">
+                        <input type="hidden" name="estado" value="aprobada">
+                        <button type="submit" class="p-1.5 rounded hover:bg-green-100 text-green-600" title="Aprobar">
+                            ✅
+                        </button>
+                    </form>
+                    <form hx-post="/solicitudes/{{ s.id }}/estado" hx-target="#tabla-container" hx-swap="innerHTML" class="inline">
+                        <input type="hidden" name="estado" value="rechazada">
+                        <button type="submit" class="p-1.5 rounded hover:bg-red-100 text-red-600" title="Rechazar">
+                            ❌
+                        </button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="p-12 text-center">
+    <div class="text-6xl mb-4">📋</div>
+    <h3 class="text-xl font-semibold text-gray-700">No hay solicitudes</h3>
+    <p class="text-gray-500 mt-2">Las solicitudes aparecerán aquí cuando se creen</p>
+    <a href="/" class="inline-block mt-4 px-6 py-2 bg-walmart-blue text-white rounded-lg hover:bg-walmart-blue-hover transition">
+        ➕ Crear Primera Solicitud
+    </a>
+</div>
+{% endif %}

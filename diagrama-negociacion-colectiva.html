@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de Negociación Colectiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+
+        .flow-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .flow-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 83, 226, 0.18);
+        }
+
+        .arrow-down {
+            width: 3px;
+            height: 40px;
+            background: #0053e2;
+            margin: 0 auto;
+            position: relative;
+        }
+        .arrow-down::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 12px solid #0053e2;
+        }
+
+        .branch-container {
+            position: relative;
+        }
+        .branch-line-h {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: #0053e2;
+        }
+        .branch-line-v-left {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 3px;
+            height: 30px;
+            background: #0053e2;
+        }
+        .branch-line-v-right {
+            position: absolute;
+            top: 0;
+            right: 25%;
+            width: 3px;
+            height: 30px;
+            background: #0053e2;
+        }
+
+        .phase-badge {
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+        }
+
+        @media print {
+            body { background: white !important; }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#0053e2] text-white py-6 shadow-lg">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="text-3xl font-extrabold tracking-tight">📋 Proceso de Negociación Colectiva</h1>
+            <p class="mt-1 text-blue-100 text-sm">Diagrama de flujo — Etapas principales del proceso</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+        <!-- ═══════════ FASE 1 ═══════════ -->
+        <div class="flow-card bg-white rounded-2xl shadow-md border-l-4 border-[#0053e2] p-6">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="phase-badge bg-[#0053e2] text-white px-2.5 py-0.5 rounded-full font-bold uppercase">Fase 1</span>
+                <h2 class="text-xl font-bold text-gray-800">📣 Preparación y Pliego de Peticiones</h2>
+            </div>
+            <ul class="ml-6 mt-3 space-y-1.5 text-gray-600 text-sm list-disc">
+                <li>Los trabajadores o el sindicato identifican las <strong>necesidades y demandas</strong> (salarios, beneficios, condiciones).</li>
+                <li>Se elabora el <strong>pliego de peticiones</strong> con las propuestas concretas.</li>
+                <li>Se designa la <strong>comisión negociadora</strong> de los trabajadores.</li>
+                <li>Se presenta formalmente el pliego al empleador.</li>
+            </ul>
+        </div>
+
+        <div class="arrow-down"></div>
+
+        <!-- ═══════════ FASE 2 ═══════════ -->
+        <div class="flow-card bg-white rounded-2xl shadow-md border-l-4 border-[#ffc220] p-6">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="phase-badge bg-[#ffc220] text-gray-900 px-2.5 py-0.5 rounded-full font-bold uppercase">Fase 2</span>
+                <h2 class="text-xl font-bold text-gray-800">🤝 Etapa de Arreglo Directo</h2>
+            </div>
+            <ul class="ml-6 mt-3 space-y-1.5 text-gray-600 text-sm list-disc">
+                <li>Empleador y trabajadores se reúnen para <strong>negociar directamente</strong>.</li>
+                <li>Plazo típico: <strong>20 días hábiles</strong> (puede prorrogarse por acuerdo).</li>
+                <li>Se intercambian contrapropuestas y se buscan puntos de acuerdo.</li>
+                <li>Se levanta <strong>acta de cada reunión</strong> con los avances.</li>
+            </ul>
+        </div>
+
+        <div class="arrow-down"></div>
+
+        <!-- ═══════════ DECISIÓN ═══════════ -->
+        <div class="flow-card bg-gradient-to-r from-[#0053e2] to-[#003da5] rounded-2xl shadow-lg p-6 text-white text-center">
+            <h2 class="text-xl font-bold">⚖️ ¿Se llegó a un acuerdo?</h2>
+            <p class="text-blue-100 text-sm mt-1">Evaluación al cierre de la etapa de arreglo directo</p>
+        </div>
+
+        <!-- Branch -->
+        <div class="branch-container h-10 mt-1">
+            <div class="branch-line-h"></div>
+            <div class="branch-line-v-left"></div>
+            <div class="branch-line-v-right"></div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+            <!-- SÍ -->
+            <div class="flow-card bg-white rounded-2xl shadow-md border-l-4 border-[#2a8703] p-5">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="phase-badge bg-[#2a8703] text-white px-2.5 py-0.5 rounded-full font-bold uppercase">Sí ✅</span>
+                </div>
+                <h3 class="font-bold text-gray-800">Convención Colectiva</h3>
+                <ul class="ml-5 mt-2 space-y-1 text-gray-600 text-xs list-disc">
+                    <li>Se firma la <strong>Convención Colectiva de Trabajo</strong>.</li>
+                    <li>Se deposita ante la autoridad laboral.</li>
+                    <li>Vigencia típica: <strong>2-4 años</strong>.</li>
+                    <li>Cubre a todos los trabajadores del ámbito.</li>
+                </ul>
+            </div>
+
+            <!-- NO -->
+            <div class="flow-card bg-white rounded-2xl shadow-md border-l-4 border-[#ea1100] p-5">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="phase-badge bg-[#ea1100] text-white px-2.5 py-0.5 rounded-full font-bold uppercase">No ❌</span>
+                </div>
+                <h3 class="font-bold text-gray-800">Se pasa a la siguiente fase</h3>
+                <ul class="ml-5 mt-2 space-y-1 text-gray-600 text-xs list-disc">
+                    <li>Los trabajadores deciden entre <strong>huelga</strong> o <strong>tribunal de arbitramento</strong>.</li>
+                    <li>Se requiere votación mayoritaria.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Arrow from NO side continues -->
+        <div class="flex justify-end pr-[25%]">
+            <div class="arrow-down"></div>
+        </div>
+
+        <!-- ═══════════ FASE 3 ═══════════ -->
+        <div class="flow-card bg-white rounded-2xl shadow-md border-l-4 border-[#ea1100] p-6">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="phase-badge bg-[#ea1100] text-white px-2.5 py-0.5 rounded-full font-bold uppercase">Fase 3</span>
+                <h2 class="text-xl font-bold text-gray-800">⚡ Huelga o Tribunal de Arbitramento</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-3">
+                <div class="bg-red-50 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-800 text-sm">🪧 Huelga</h4>
+                    <ul class="ml-4 mt-2 space-y-1 text-gray-600 text-xs list-disc">
+                        <li>Suspensión colectiva de trabajo.</li>
+                        <li>Debe ser <strong>pacífica</strong> y aprobada por mayoría.</li>
+                        <li>Comités de huelga garantizan servicios mínimos.</li>
+                        <li>Puede durar hasta <strong>60 días</strong> antes de arbitramento obligatorio.</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-800 text-sm">⚖️ Tribunal de Arbitramento</h4>
+                    <ul class="ml-4 mt-2 space-y-1 text-gray-600 text-xs list-disc">
+                        <li>Tribunal compuesto por <strong>3 árbitros</strong>.</li>
+                        <li>Un árbitro por cada parte + uno neutral.</li>
+                        <li>Emite un <strong>laudo arbitral</strong> de obligatorio cumplimiento.</li>
+                        <li>Vigencia del laudo: misma que una convención.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow-down"></div>
+
+        <!-- ═══════════ FASE 4 ═══════════ -->
+        <div class="flow-card bg-white rounded-2xl shadow-md border-l-4 border-[#2a8703] p-6">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="phase-badge bg-[#2a8703] text-white px-2.5 py-0.5 rounded-full font-bold uppercase">Fase 4</span>
+                <h2 class="text-xl font-bold text-gray-800">✅ Acuerdo Final y Registro</h2>
+            </div>
+            <ul class="ml-6 mt-3 space-y-1.5 text-gray-600 text-sm list-disc">
+                <li>Se formaliza el acuerdo (convención colectiva o laudo arbitral).</li>
+                <li>Se <strong>registra</strong> ante el Ministerio de Trabajo o autoridad competente.</li>
+                <li>Entra en vigor y se aplica a <strong>todos los trabajadores</strong> del ámbito.</li>
+                <li>Se establece mecanismo de <strong>seguimiento y cumplimiento</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="arrow-down"></div>
+
+        <!-- ═══════════ FASE 5 ═══════════ -->
+        <div class="flow-card bg-gradient-to-r from-[#0053e2] to-[#003da5] rounded-2xl shadow-lg p-6 text-white">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="phase-badge bg-white text-[#0053e2] px-2.5 py-0.5 rounded-full font-bold uppercase">Ciclo</span>
+                <h2 class="text-xl font-bold">🔄 Vigencia y Renovación</h2>
+            </div>
+            <ul class="ml-6 mt-3 space-y-1.5 text-blue-100 text-sm list-disc">
+                <li>El acuerdo rige durante el período pactado (<strong>2-4 años</strong> típicamente).</li>
+                <li>Antes del vencimiento, se puede <strong>denunciar</strong> el acuerdo para iniciar nueva negociación.</li>
+                <li>Si no se denuncia, puede prorrogarse automáticamente.</li>
+                <li><strong>El ciclo se reinicia</strong> con un nuevo pliego de peticiones. ↩️</li>
+            </ul>
+        </div>
+
+        <!-- Legend -->
+        <div class="mt-10 bg-white rounded-2xl shadow-sm border border-gray-200 p-5">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">📌 Leyenda de Colores</h3>
+            <div class="flex flex-wrap gap-4 text-xs text-gray-600">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded bg-[#0053e2]"></span> Inicio / Proceso principal
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded bg-[#ffc220]"></span> Negociación directa
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded bg-[#2a8703]"></span> Acuerdo / Éxito
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded bg-[#ea1100]"></span> Conflicto / Sin acuerdo
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <p class="text-center text-gray-400 text-xs mt-8">Diagrama generado por Yaman 🐶 — Febrero 2026</p>
+
+    </main>
+</body>
+</html>
